@@ -1,0 +1,63 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- MySQL data source -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://127.0.0.1:5432/QCM" />
+		<property name="username" value="mika" />
+		<property name="password" value="mika" />
+	</bean>
+
+	<!-- Hibernate session factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>Questionnaire.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+		    <props>
+			<prop key="hibernate.dialect">
+                          org.hibernate.dialect.PostgreSQLDialect
+                        </prop>
+			<prop key="hibernate.format_sql">true</prop>
+			<prop key="hibernate.show_sql">true</prop>
+		    </props>
+		</property>
+	</bean>
+
+	<bean id="QuestionnaireDao" class="com.mika.qcm.DAO.QuestionnaireDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 
+	<bean id="questionnaireService" 
+                class="com.mika.qcm.service.questionnaireServiceImpl">
+		<property name="questionnaireDao" ref="questionnaireDao" />
+	</bean>
+	 -->
+
+	<!-- MUST have transaction manager, using aop and aspects  -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- Enable the configuration of transactional behavior based on annotations -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+
+</beans>
