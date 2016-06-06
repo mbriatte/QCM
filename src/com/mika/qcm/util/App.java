@@ -8,6 +8,7 @@ import com.mika.qcm.DAO.GenericDao;
 import com.mika.qcm.DAO.QuestionDao;
 import com.mika.qcm.DAO.QuestionnaireDao;
 import com.mika.qcm.DAO.QuestionnaireDaoImpl;
+import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
 
 
@@ -15,38 +16,26 @@ import com.mika.qcm.model.Questionnaire;
 
 
 public class App {
-	/*
-    public static void main(String[] args) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        Questionnaire p1 = new Questionnaire();
-        p1.setLibelle("Michael");
-        p1.setId("abc");
-        QuestionnaireDao dao= new QuestionnaireDaoImpl();
-        dao.setSessionFactory(sessionFactory);
-        sessionFactory.getCurrentSession().beginTransaction();
-        dao.saveOrUpdate(p1);
-        sessionFactory.getCurrentSession().getTransaction().commit();
-    
-        session.close();
-        
-    }
-    */
+	
 	
 	 public static void main(String[] args) {
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-database.xml");
 	
-	QuestionnaireDao dao = context.getBean(QuestionnaireDao.class);
+	QuestionnaireDao daoquestionnaire = context.getBean(QuestionnaireDao.class);
+	QuestionDao daoquestion = context.getBean(QuestionDao.class);
 	
 	  Questionnaire p1 = new Questionnaire();
       p1.setLibelle("Michael");
       p1.setId("abc");
+      
+      Question q1=new Question("q1","test question");
+      
+      p1.AddQuestion(q1);
+      daoquestion.saveOrUpdate(q1);
 	
-      dao.saveOrUpdate(p1);
-    
-   
-	
+      daoquestionnaire.saveOrUpdate(p1);
+      
+     
 	
 	//close resources
 	context.close();	

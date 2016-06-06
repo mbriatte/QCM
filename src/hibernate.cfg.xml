@@ -31,5 +31,6 @@
         <property name="hbm2ddl.auto">create</property>
 
         <mapping resource="Questionnaire.hbm.xml" />
+        <mapping resource="Question.hbm.xml" />
     </session-factory>
 </hibernate-configuration> 

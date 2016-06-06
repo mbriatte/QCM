@@ -8,6 +8,14 @@
         <id name="id" column="ID" type="string">
         </id>
         <property name="libelle" column="Libelle" type="string"/>
-         
+        
+          <set name="questions" table="Question"
+                inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="questionnaire_id" not-null="true" />
+            </key>
+            <one-to-many class="com.mika.qcm.model.Question" />
+        </set>
+        
     </class>
 </hibernate-mapping> 

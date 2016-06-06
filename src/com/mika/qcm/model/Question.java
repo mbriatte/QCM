@@ -25,24 +25,21 @@ public class Question implements Serializable {
 	@Column(name = "ENONCE", nullable = false)
 	private String enonce ;
 
-	
-	@ManyToOne
-	@JoinColumn(name ="Questionnaire_ID")
-	private Questionnaire questionnaire;
-	 
-	public Questionnaire getQuestion() {
-		return questionnaire;
-	}
-
-	public void setQuestionnaire(Questionnaire questionnaire) {
-		this.questionnaire = questionnaire;
-	}
 
 	public String getEnonce() {
 		return enonce;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public void setEnonce(String enonce) {
+		
 		this.enonce = enonce;
 	}
 
@@ -50,9 +47,9 @@ public class Question implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Question( String enonce) {
+	public Question(String id, String enonce) {
 		super();
-		
+		this.id=id;
 		this.enonce = enonce;
 	}
 

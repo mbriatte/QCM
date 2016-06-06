@@ -25,6 +25,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>Questionnaire.hbm.xml</value>
+				<value>Question.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -42,6 +43,10 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+		<bean id="QuestionDao" class="com.mika.qcm.DAO.QuestionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
 	<!-- 
 	<bean id="questionnaireService" 
                 class="com.mika.qcm.service.questionnaireServiceImpl">

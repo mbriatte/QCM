@@ -1,7 +1,10 @@
 package com.mika.qcm.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +33,7 @@ public class Questionnaire implements Serializable {
 	private String libelle ;
 	
 	@Transient
-	private List<Question> questions ;
+	private Set<Question> questions ;
 
 	public Questionnaire(String libelle) {
 		super();
@@ -44,6 +47,7 @@ public class Questionnaire implements Serializable {
 
 	public Questionnaire() {
 		super();
+		questions=new  HashSet<Question>();
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -52,7 +56,7 @@ public class Questionnaire implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public List<Question> getQuestions() {
+	public Set<Question> getQuestions() {
 		  return questions;
 		 }
 
@@ -64,7 +68,7 @@ public class Questionnaire implements Serializable {
 		this.id = id;
 	}
 
-	public void setQuestions(List<Question> questions) {
+	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
 	}
 	
