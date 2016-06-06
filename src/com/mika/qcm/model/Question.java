@@ -10,29 +10,30 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "QUESTION")
+
 
 public class Question implements Serializable {
 	
-	@Column(name = "ID", nullable = false)
+	
 	private String id;
 
-	@Override
+	
 	public String toString() {
 		return "Question [id=" + id + ", enonce=" + enonce + "]";
 	}
 
-	@Column(name = "ENONCE", nullable = false)
+
 	private String enonce ;
 
+	public String getId() {
+		return id;
+	}
 
 	public String getEnonce() {
 		return enonce;
 	}
 
-	public String getId() {
-		return id;
-	}
+	
 
 	public void setId(String id) {
 		this.id = id;

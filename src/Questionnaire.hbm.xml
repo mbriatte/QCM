@@ -10,7 +10,7 @@
         <property name="libelle" column="Libelle" type="string"/>
         
           <set name="questions" table="Question"
-                inverse="true" lazy="true" fetch="select">
+                inverse="true" lazy="false" fetch="select" cascade="all">
             <key>
                 <column name="questionnaire_id" not-null="true" />
             </key>

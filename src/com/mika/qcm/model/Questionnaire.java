@@ -14,9 +14,26 @@ import javax.persistence.Transient;
 
 @SuppressWarnings("serial")
 @Entity
-//@Table(name = "QUESTIONNAIRE")
+
 
 public class Questionnaire implements Serializable {
+	
+
+	private String id;
+
+
+	private String libelle ;
+	
+	@Transient
+	private Set<Question> questions ;
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	public String getLibelle() {
 		return libelle;
@@ -26,14 +43,7 @@ public class Questionnaire implements Serializable {
 		this.libelle = libelle;
 	}
 
-//	@Column(name = "ID", nullable = false)
-	private String id;
 
-//	@Column(name = "LIBELLE", nullable = false)
-	private String libelle ;
-	
-	@Transient
-	private Set<Question> questions ;
 
 	public Questionnaire(String libelle) {
 		super();
@@ -59,14 +69,6 @@ public class Questionnaire implements Serializable {
 	public Set<Question> getQuestions() {
 		  return questions;
 		 }
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
