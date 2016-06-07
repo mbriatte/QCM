@@ -43,16 +43,24 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-		<bean id="QuestionDao" class="com.mika.qcm.DAO.QuestionDaoImpl">
+	<bean id="QuestionDao" class="com.mika.qcm.DAO.QuestionDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<!-- 
+	
 	<bean id="questionnaireService" 
-                class="com.mika.qcm.service.questionnaireServiceImpl">
-		<property name="questionnaireDao" ref="questionnaireDao" />
+                class="com.mika.qcm.service.QuestionnaireServiceImpl">
+		<property name="questionnaireDao" ref="QuestionnaireDao" />
+		<property name="questionDao" ref="QuestionDao" />
 	</bean>
-	 -->
+	
+	 
+	 
+	<bean id="questionService" 
+                class="com.mika.qcm.service.QuestionServiceImpl">
+		<property name="questionDao" ref="QuestionDao" />
+	</bean>
+	
 
 	<!-- MUST have transaction manager, using aop and aspects  -->
 	<bean id="transactionManager"

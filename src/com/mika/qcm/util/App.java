@@ -34,12 +34,12 @@ public class App {
       
       Question q1=new Question("q2","test question");
       
-      p1.AddQuestion(q1);
+      p1.addQuestion(q1);
     //  daoquestion.saveOrUpdate(q1);
       daoquestionnaire.saveOrUpdate(p1);
       
       Question q2=new Question("q3","test question3");
-      p1.AddQuestion(q2);
+      p1.addQuestion(q2);
       daoquestionnaire.saveOrUpdate(p1);
      q2.setEnonce("test3");
      daoquestion.saveOrUpdate(q2);

@@ -7,15 +7,15 @@
     <class name="Questionnaire" table="Questionnaire">
         <id name="id" column="ID" type="string">
         </id>
+        
         <property name="libelle" column="Libelle" type="string"/>
         
-          <set name="questions" table="Question"
-                inverse="true" lazy="false" fetch="select" cascade="all">
-            <key>
-                <column name="questionnaire_id" not-null="true" />
-            </key>
+          <list name="questions" cascade="all">
+            <key column ="questionnaire_id" />
+            <index column="id"/>
             <one-to-many class="com.mika.qcm.model.Question" />
-        </set>
+        </list>
         
+      
     </class>
 </hibernate-mapping> 

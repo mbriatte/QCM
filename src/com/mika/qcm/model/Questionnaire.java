@@ -25,7 +25,7 @@ public class Questionnaire implements Serializable {
 	private String libelle ;
 	
 	@Transient
-	private Set<Question> questions ;
+	private List<Question> questions ;
 	
 	public String getId() {
 		return id;
@@ -45,8 +45,9 @@ public class Questionnaire implements Serializable {
 
 
 
-	public Questionnaire(String libelle) {
+	public Questionnaire(String id,String libelle) {
 		super();
+		this.id=id;
 		this.libelle = libelle;
 	}
 
@@ -57,20 +58,25 @@ public class Questionnaire implements Serializable {
 
 	public Questionnaire() {
 		super();
-		questions=new  HashSet<Question>();
+		questions=new  ArrayList<Question>();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void AddQuestion(Question q) {
+	public void addQuestion(Question q) {
 		questions.add(q);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void removeQuestion(Question q) {
+		questions.remove(q);
+		// TODO Auto-generated constructor stub
+	}
 
-	public Set<Question> getQuestions() {
+	public List<Question> getQuestions() {
 		  return questions;
 		 }
 
-	public void setQuestions(Set<Question> questions) {
+	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 	
