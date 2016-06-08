@@ -25,7 +25,7 @@ public class Questionnaire implements Serializable {
 	private String libelle ;
 	
 	@Transient
-	private List<Question> questions ;
+	private List<Question> questions= new ArrayList<Question>();
 	
 	public String getId() {
 		return id;

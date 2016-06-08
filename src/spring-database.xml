@@ -39,16 +39,16 @@
 		</property>
 	</bean>
 
-	<bean id="QuestionnaireDao" class="com.mika.qcm.DAO.QuestionnaireDaoImpl">
+	<bean id="QuestionnaireDao" class="com.mika.qcm.dao.QuestionnaireDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="QuestionDao" class="com.mika.qcm.DAO.QuestionDaoImpl">
+	<bean id="QuestionDao" class="com.mika.qcm.dao.QuestionDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
 	
-	<bean id="questionnaireService" 
+	<bean id="QuestionnaireService" 
                 class="com.mika.qcm.service.QuestionnaireServiceImpl">
 		<property name="questionnaireDao" ref="QuestionnaireDao" />
 		<property name="questionDao" ref="QuestionDao" />
@@ -56,7 +56,7 @@
 	
 	 
 	 
-	<bean id="questionService" 
+	<bean id="QuestionService" 
                 class="com.mika.qcm.service.QuestionServiceImpl">
 		<property name="questionDao" ref="QuestionDao" />
 	</bean>

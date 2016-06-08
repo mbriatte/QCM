@@ -1,4 +1,4 @@
-package com.mika.qcm.DAO;
+package com.mika.qcm.dao;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

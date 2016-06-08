@@ -12,8 +12,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mika.qcm.DAO.QuestionDao;
-import com.mika.qcm.DAO.QuestionnaireDao;
+import com.mika.qcm.dao.QuestionDao;
+import com.mika.qcm.dao.QuestionnaireDao;
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
 
@@ -53,7 +53,7 @@ public class QuestionnaireDaoImplTest {
 	    public void testAdd() {
 	    	System.out.println("test add");
 	        int oldSize = daoquestionnaire.getAll().size();
-	        Questionnaire e = new Questionnaire("id"+oldSize, "test");
+	        Questionnaire e = new Questionnaire("id"+oldSize+1, "test");
 	        daoquestionnaire.add(e);
 	        System.out.println("creation de l'objet "+oldSize);
 	        int newSize = daoquestionnaire.getAll().size();

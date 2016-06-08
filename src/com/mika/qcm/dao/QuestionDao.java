@@ -1,4 +1,4 @@
-package com.mika.qcm.DAO;
+package com.mika.qcm.dao;
 
 import com.mika.qcm.model.Question;
 

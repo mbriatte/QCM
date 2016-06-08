@@ -7,10 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mika.qcm.DAO.GenericDao;
-import com.mika.qcm.DAO.QuestionDao;
-import com.mika.qcm.DAO.QuestionnaireDao;
-import com.mika.qcm.DAO.QuestionnaireDaoImpl;
+import com.mika.qcm.dao.GenericDao;
+import com.mika.qcm.dao.QuestionDao;
+import com.mika.qcm.dao.QuestionnaireDao;
+import com.mika.qcm.dao.QuestionnaireDaoImpl;
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
 

@@ -2,9 +2,9 @@ package com.mika.qcm.service;
 
 import java.util.List;
 
-import com.mika.qcm.DAO.GenericDaoImpl;
-import com.mika.qcm.DAO.QuestionDao;
-import com.mika.qcm.DAO.QuestionnaireDao;
+import com.mika.qcm.dao.GenericDaoImpl;
+import com.mika.qcm.dao.QuestionDao;
+import com.mika.qcm.dao.QuestionnaireDao;
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
 
@@ -35,31 +35,69 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 	@Override
 	public void addQuestionToQuestionnaire(Question q, Questionnaire questionnaire) {
 		questionnaire.addQuestion(q);
+		this.questionDao.add(q);
 		this.questionnaireDao.saveOrUpdate(questionnaire);
+
 	}
 
 	@Override
 	public void removeQuestionFromQuestionnaire(Question q, Questionnaire questionnaire) {
 		questionnaire.removeQuestion(q);
+		this.questionDao.remove(q);
 		this.questionnaireDao.saveOrUpdate(questionnaire);
 		
 	}
 
 	@Override
 	public List<Question> getQuestions(Questionnaire q) {
-		return null;
+		return q.getQuestions();
 	}
 
 	@Override
 	public void removeQuestionnaire(Questionnaire questionnaire) {
-		// TODO Auto-generated method stub
+		this.questionnaireDao.remove(questionnaire);
 		
 	}
 
 	@Override
 	public List<Questionnaire> getQuestionnaires() {
+		return this.questionnaireDao.getAll();
+	}
+
+	@Override
+	public void removeQuestionnaire(String idquestionnaire) {
+		Questionnaire q=questionnaireDao.find(idquestionnaire);
+		if (q!=null)questionnaireDao.remove(q);
+		
+	}
+
+	@Override
+	public void addQuestionToQuestionnaire(Question q, String idquestionnaire) {
 		// TODO Auto-generated method stub
-		return null;
+		
+	}
+
+	@Override
+	public void removeQuestionFromQuestionnaire(Question q, String idquestionnaire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Question> getQuestions(String idquestionnaire) {
+		Questionnaire q=questionnaireDao.find(idquestionnaire);
+		return q.getQuestions();
+	}
+
+	@Override
+	public void saveQuestionnaire(Questionnaire q) {
+		questionnaireDao.saveOrUpdate(q);
+		
+	}
+
+	@Override
+	public Questionnaire getQuestionnaire(String idquestionnaire) {
+		return questionnaireDao.find(idquestionnaire);
 	}
 
 }

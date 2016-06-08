@@ -10,7 +10,7 @@
         
         <property name="libelle" column="Libelle" type="string"/>
         
-          <list name="questions" cascade="all">
+          <list name="questions" cascade="all" lazy="false">
             <key column ="questionnaire_id" />
             <index column="id"/>
             <one-to-many class="com.mika.qcm.model.Question" />

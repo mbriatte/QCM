@@ -1,4 +1,4 @@
-package com.mika.qcm.DAO;
+package com.mika.qcm.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
