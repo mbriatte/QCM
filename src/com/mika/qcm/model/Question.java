@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Question implements Serializable {
 	
 	
-	private String id;
+	private Long id;
 
 	
 	public String toString() {
@@ -25,7 +25,7 @@ public class Question implements Serializable {
 
 	private String enonce ;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -35,7 +35,7 @@ public class Question implements Serializable {
 
 	
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -48,9 +48,9 @@ public class Question implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Question(String id, String enonce) {
+	public Question(String enonce) {
 		super();
-		this.id=id;
+	
 		this.enonce = enonce;
 	}
 

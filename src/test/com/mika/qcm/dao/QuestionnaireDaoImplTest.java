@@ -27,7 +27,7 @@ public class QuestionnaireDaoImplTest {
 	    public void setUp() {
 	 		System.out.println("setup");
 	        for (int i = 1; i < 5; i++) {
-	            Questionnaire e = new Questionnaire("id"+ i, "test "+i);
+	            Questionnaire e = new Questionnaire( "test "+i);
 	            daoquestionnaire.add(e);
 	            
 	        }
@@ -36,24 +36,17 @@ public class QuestionnaireDaoImplTest {
 	 	
 	 	@After
 	    public void tearDown() {
-	 		System.out.println("teardown");
-	        for (int i = 1; i < 5; i++) {
-	           
-	           Questionnaire q= daoquestionnaire.find("id"+i);
-	           if (q !=null) 
-	        	   {
-	        	   System.out.println("suppression de l'objet "+q.getId());
-	        	   	daoquestionnaire.remove(q);
-	        	   }
-	           
-	        }
+	 		  List<Questionnaire> q2= daoquestionnaire.getAll();         
+	          for (Questionnaire quest  : q2)
+	        	  daoquestionnaire.remove(quest);
+	        
 	    }
 	 	
 	    @Test
 	    public void testAdd() {
 	    	System.out.println("test add");
 	        int oldSize = daoquestionnaire.getAll().size();
-	        Questionnaire e = new Questionnaire("id"+oldSize+1, "test");
+	        Questionnaire e = new Questionnaire("test");
 	        daoquestionnaire.add(e);
 	        System.out.println("creation de l'objet "+oldSize);
 	        int newSize = daoquestionnaire.getAll().size();
@@ -66,10 +59,11 @@ public class QuestionnaireDaoImplTest {
 	    @Test
 	    public void testUpdate() {
 	    	System.out.println("test update");
-	    	 Questionnaire e = daoquestionnaire.find("id1");
+	    	Long id=daoquestionnaire.getAll().get(0).getId();
+	    	 Questionnaire e = daoquestionnaire.find(id);
 	    	 e.setLibelle("new libelle");
 	    	 daoquestionnaire.saveOrUpdate(e);
-	    	 Questionnaire f = daoquestionnaire.find("id1");
+	    	 Questionnaire f = daoquestionnaire.find(id);
 	    	 assertTrue(e.getLibelle().equalsIgnoreCase(f.getLibelle()));
 	    }
 	    
@@ -79,7 +73,7 @@ public class QuestionnaireDaoImplTest {
 	    	System.out.println("test remove");
 	        int oldSize = daoquestionnaire.getAll().size();
 	        System.out.println("remove "+ oldSize);
-	        Questionnaire e = daoquestionnaire.find("id1");
+	        Questionnaire e = daoquestionnaire.getAll().get(0);
 	        daoquestionnaire.remove(e);
 	        int newSize = daoquestionnaire.getAll().size();
 	         

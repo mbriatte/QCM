@@ -9,16 +9,16 @@ public interface QuestionnaireService {
 	void addQuestionnaire(Questionnaire q);
 	void saveQuestionnaire(Questionnaire q);
 	void removeQuestionnaire(Questionnaire questionnaire);
-	void removeQuestionnaire(String idquestionnaire);
+	void removeQuestionnaire(Long idquestionnaire);
 	List<Questionnaire> getQuestionnaires();
-	Questionnaire getQuestionnaire(String idquestionnaire);
+	Questionnaire getQuestionnaire(Long idquestionnaire);
 	
 	void addQuestionToQuestionnaire(Question q, Questionnaire questionnaire);
-	void addQuestionToQuestionnaire(Question q, String idquestionnaire);
+	void addQuestionToQuestionnaire(Question q, Long idquestionnaire);
 	void removeQuestionFromQuestionnaire(Question q, Questionnaire questionnaire);
-	void removeQuestionFromQuestionnaire(Question q, String idquestionnaire);
+	void removeQuestionFromQuestionnaire(Question q, Long idquestionnaire);
 	List<Question> getQuestions(Questionnaire q);
-	List<Question> getQuestions(String idquestionnaire);
+	List<Question> getQuestions(Long idquestionnaire);
 	//void addPropositionToQuestionnaire(Proposition p, Question q);
 	
 }

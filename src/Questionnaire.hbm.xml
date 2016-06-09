@@ -5,7 +5,8 @@
 
 <hibernate-mapping package="com.mika.qcm.model">
     <class name="Questionnaire" table="Questionnaire">
-        <id name="id" column="ID" type="string">
+        <id name="id" column="ID" type="long">
+             <generator class="native" />
         </id>
         
         <property name="libelle" column="Libelle" type="string"/>

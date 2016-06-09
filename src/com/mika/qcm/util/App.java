@@ -17,7 +17,7 @@ import com.mika.qcm.model.Questionnaire;
 
 
 public class App {
-	
+	/*
 	
 	 public static void main(String[] args) {
 		 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-database.xml");
@@ -45,5 +45,7 @@ public class App {
      daoquestion.saveOrUpdate(q2);
 	//close resources
 	context.close();	
+	
 	 }
+	 */
 }

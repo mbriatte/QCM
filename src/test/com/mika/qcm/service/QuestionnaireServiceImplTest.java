@@ -55,7 +55,7 @@ public class QuestionnaireServiceImplTest {
 	@Test
 	public void TestAddQuestionnaire() {
 		int sizebefore=daoquestionnaire.getAll().size();
-		Questionnaire q = new Questionnaire("Questionnaire1","ceci est un questionnaire");
+		Questionnaire q = new Questionnaire("ceci est un questionnaire");
 		questionnaireService.addQuestionnaire(q);
 		assertFalse(sizebefore==daoquestionnaire.getAll().size());
 		
@@ -64,13 +64,14 @@ public class QuestionnaireServiceImplTest {
 	@Test
 	public void TestAddQuestionTonewQuestionnaire() {
 		
-		Questionnaire q = new Questionnaire("Questionnaire2","ceci est un questionnaire");
-		Question quest= new  Question("Question1","ceci est une question");
+		Questionnaire q = new Questionnaire("ceci est un questionnaire");
+		Question quest= new  Question("ceci est une question");
 		System.out.println("addQuestion");
 		q.addQuestion(quest);
 		System.out.println("addQuestionnaire");
 		questionnaireService.addQuestionnaire(q);
-		Questionnaire q2=daoquestionnaire.find("Questionnaire2");
+		Long id=q.getId();
+		Questionnaire q2=daoquestionnaire.find(id);
 	
 		
 		assertFalse(0==q2.getQuestions().size());
@@ -80,14 +81,15 @@ public class QuestionnaireServiceImplTest {
 	@Test
 	public void TestAddQuestionToOldQuestionnaire() {
 		
-		Questionnaire q = new Questionnaire("Questionnaire2","ceci est un questionnaire");
+		Questionnaire q = new Questionnaire("ceci est un questionnaire");
 		questionnaireService.addQuestionnaire(q);
-		Question quest= new  Question("Question1","ceci est une question");
+		Question quest= new  Question("ceci est une question");
 		System.out.println("addQuestion");
 		q.addQuestion(quest);
 		System.out.println("addQuestionnaire");
 		questionnaireService.saveQuestionnaire(q);
-		Questionnaire q2=daoquestionnaire.find("Questionnaire2");
+		Long id=q.getId();
+		Questionnaire q2=daoquestionnaire.find(id);
 	
 		
 		assertFalse(0==q2.getQuestions().size());
@@ -97,9 +99,9 @@ public class QuestionnaireServiceImplTest {
 	@Test
 	public void TestRemoveQuestionToQuestionnaire() {
 		
-		Questionnaire q = new Questionnaire("Questionnaire2","ceci est un questionnaire");
-		Question quest1= new  Question("Question1","ceci est une question");
-		Question quest2= new  Question("Question2","ceci est une question2");
+		Questionnaire q = new Questionnaire("ceci est un questionnaire");
+		Question quest1= new  Question("ceci est une question");
+		Question quest2= new  Question("ceci est une question2");
 		q.addQuestion(quest1);
 		q.addQuestion(quest2);
 		

@@ -30,7 +30,7 @@ public class QuestionServiceImpl implements QuestionService {
 
 
 	@Override
-	public void removeQuestion(String idquestion) {
+	public void removeQuestion(Long idquestion) {
 		Question q=questionDao.find(idquestion);
 		if (q!=null)questionDao.remove(q);
 		

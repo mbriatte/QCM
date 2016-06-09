@@ -66,26 +66,26 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 	}
 
 	@Override
-	public void removeQuestionnaire(String idquestionnaire) {
+	public void removeQuestionnaire(Long idquestionnaire) {
 		Questionnaire q=questionnaireDao.find(idquestionnaire);
 		if (q!=null)questionnaireDao.remove(q);
 		
 	}
 
 	@Override
-	public void addQuestionToQuestionnaire(Question q, String idquestionnaire) {
+	public void addQuestionToQuestionnaire(Question q, Long idquestionnaire) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeQuestionFromQuestionnaire(Question q, String idquestionnaire) {
+	public void removeQuestionFromQuestionnaire(Question q, Long idquestionnaire) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Question> getQuestions(String idquestionnaire) {
+	public List<Question> getQuestions(Long idquestionnaire) {
 		Questionnaire q=questionnaireDao.find(idquestionnaire);
 		return q.getQuestions();
 	}
@@ -97,7 +97,7 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 	}
 
 	@Override
-	public Questionnaire getQuestionnaire(String idquestionnaire) {
+	public Questionnaire getQuestionnaire(Long idquestionnaire) {
 		return questionnaireDao.find(idquestionnaire);
 	}
 

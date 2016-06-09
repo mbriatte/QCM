@@ -37,10 +37,10 @@ public class QuestionDaoImplTestTest {
 	@Before
 	public void setUp() throws Exception {
 		System.out.println("setup");
-		Questionnaire e = new Questionnaire("id1", "test Questionnaire");
+		Questionnaire e = new Questionnaire("test Questionnaire");
 		daoquestionnaire.add(e);
         for (int i = 1; i < 5; i++) {
-            Question q = new Question("id"+ i, "test "+i);
+            Question q = new Question( "test "+i);
             daoquestion.add(q);
         }
 	}
@@ -63,7 +63,7 @@ public class QuestionDaoImplTestTest {
 		System.out.println("test remove");
         int oldSize = daoquestion.getAll().size();
         System.out.println("remove "+ oldSize);
-        Question e = daoquestion.find("id1");
+        Question e = daoquestion.getAll().get(0);
         daoquestion.remove(e);
         int newSize = daoquestion.getAll().size();
          

@@ -19,7 +19,7 @@ import javax.persistence.Transient;
 public class Questionnaire implements Serializable {
 	
 
-	private String id;
+	private Long id;
 
 
 	private String libelle ;
@@ -27,11 +27,11 @@ public class Questionnaire implements Serializable {
 	@Transient
 	private List<Question> questions= new ArrayList<Question>();
 	
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -45,9 +45,8 @@ public class Questionnaire implements Serializable {
 
 
 
-	public Questionnaire(String id,String libelle) {
+	public Questionnaire(String libelle) {
 		super();
-		this.id=id;
 		this.libelle = libelle;
 	}
 
