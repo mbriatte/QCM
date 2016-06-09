@@ -1,8 +1,9 @@
-package com.mika.qcm.service;
+package com.mika.qcm.service.impl;
 
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
 import com.mika.qcm.model.Question;
+import com.mika.qcm.service.QuestionService;
 
 public class QuestionServiceImpl implements QuestionService {
 

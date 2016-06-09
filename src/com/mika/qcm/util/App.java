@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.mika.qcm.dao.GenericDao;
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
-import com.mika.qcm.dao.QuestionnaireDaoImpl;
+import com.mika.qcm.dao.impl.QuestionnaireDaoImpl;
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
 

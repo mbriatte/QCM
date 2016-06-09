@@ -103,28 +103,11 @@ public class QuestionnaireServiceImplTest {
 		q.addQuestion(quest1);
 		q.addQuestion(quest2);
 		
-	
-		q.removeQuestion(quest2);
 		assertTrue(2==q.getQuestions().size());
+
+		q.removeQuestion(quest2);
 		questionnaireService.removeQuestionFromQuestionnaire(quest2, q);
 		assertTrue(1==q.getQuestions().size());
 	}
 	
-	@Test
-	public void TestRemoveQuestionToOldQuestionnaire() {
-		
-		Questionnaire q = new Questionnaire("Questionnaire2","ceci est un questionnaire");
-		Question quest1= new  Question("Question1","ceci est une question");
-		Question quest2= new  Question("Question2","ceci est une question2");
-		q.addQuestion(quest1);
-		q.addQuestion(quest2);
-		assertTrue(2==q.getQuestions().size());
-		
-		Questionnaire q2 =questionnaireService.getQuestionnaire("Questionnaire2");
-		Question quest=q2.getQuestions().get(0);
-		q2.removeQuestion(quest);
-		questionnaireService.removeQuestionFromQuestionnaire(quest, q2);
-		assertTrue(1==q2.getQuestions().size());
-		
-	}
 }
