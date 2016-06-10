@@ -2,6 +2,8 @@ package com.mika.qcm.service.impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.Restrictions;
+
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
 import com.mika.qcm.dao.impl.GenericDaoImpl;
@@ -99,6 +101,12 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 	@Override
 	public Questionnaire getQuestionnaire(Long idquestionnaire) {
 		return questionnaireDao.find(idquestionnaire);
+	}
+
+	@Override
+	public Questionnaire getQuestionnaireByName(String questionnaire) {
+		return (Questionnaire) questionnaireDao.findByCriteria(Questionnaire.class, Restrictions.eq("libelle", questionnaire));
+		
 	}
 
 }

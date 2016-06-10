@@ -8,10 +8,12 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -91,6 +93,16 @@ public abstract class GenericDaoImpl<E, K extends Serializable>  implements Gene
     public List<E> getAll() {
         return currentSession().createCriteria(daoType).list();
     }
- 
+    
+    @Override
+    public final List<?> findByCriteria(final Class<?> currentPersistantClass, final Criterion... criterion) {
+        final Criteria crit = currentSession().createCriteria(currentPersistantClass);
+        for (final Criterion c : criterion) {
+            crit.add(c);
+        }
+        return crit.list();
+    }
+   
 
+    
 }

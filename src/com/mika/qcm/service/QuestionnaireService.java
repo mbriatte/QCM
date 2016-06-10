@@ -13,6 +13,8 @@ public interface QuestionnaireService {
 	List<Questionnaire> getQuestionnaires();
 	Questionnaire getQuestionnaire(Long idquestionnaire);
 	
+	Questionnaire getQuestionnaireByName(String questionnaire);
+	
 	void addQuestionToQuestionnaire(Question q, Questionnaire questionnaire);
 	void addQuestionToQuestionnaire(Question q, Long idquestionnaire);
 	void removeQuestionFromQuestionnaire(Question q, Questionnaire questionnaire);
@@ -20,5 +22,6 @@ public interface QuestionnaireService {
 	List<Question> getQuestions(Questionnaire q);
 	List<Question> getQuestions(Long idquestionnaire);
 	//void addPropositionToQuestionnaire(Proposition p, Question q);
+	
 	
 }

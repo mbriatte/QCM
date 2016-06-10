@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Iterator;
 import java.util.List;
 
+import org.hibernate.criterion.Restrictions;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -87,6 +88,33 @@ public class QuestionnaireDaoImplTest {
 	        System.out.println("liste "+ list.size());
 	        assertNotNull (list);
 	        assertFalse (list.isEmpty());
+	    }
+	    
+	    
+	    @Test
+	    public void testFind() {
+	    	System.out.println("test list");
+	    	  Long id =  daoquestionnaire.getAll().get(0).getId();
+	    	Questionnaire q=daoquestionnaire.find(id);
+	    	   assertNotNull (q);
+	    	   assertTrue (q.getId()==id);
+	    	
+	    }
+	    
+	    @Test
+	    public void testFindbyname() {
+	    	 Questionnaire e = new Questionnaire("testrecehrche");
+		        daoquestionnaire.add(e);
+	    		    			  
+		        List<Questionnaire>  l=(List<Questionnaire>) daoquestionnaire.findByCriteria(Questionnaire.class, Restrictions.eq("libelle", "testrecehrche"));
+		        Questionnaire f=l.get(0);
+		    	System.out.println("questionnaire nom ="+ f.getLibelle());
+		    	assertTrue (l.size()!=0);
+		    	l=(List<Questionnaire>) daoquestionnaire.findByCriteria(Questionnaire.class, Restrictions.eq("libelle", "inconnu"));
+		    	assertTrue (l.size()==0);
+		       
+		    
+	    	
 	    }
 	    
 
