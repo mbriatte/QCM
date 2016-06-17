@@ -70,7 +70,7 @@ public class QuestionnaireServiceImplTest {
 	
 	@Test
 	public void TestAddQuestionToOldQuestionnaire() {
-		System.out.println("debut de test 도도도도도도도도도도도도도도도�");
+		
 		Questionnaire q = new Questionnaire("ceci est un questionnaire");
 		questionnaireService.addQuestionnaire(q);
 		Long id=q.getId();
