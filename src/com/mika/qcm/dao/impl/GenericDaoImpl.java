@@ -6,7 +6,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 
-import javax.transaction.Transactional;
+
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -16,12 +16,14 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Propagation;
 
 import com.mika.qcm.dao.GenericDao;
 
 
 @SuppressWarnings("unchecked")
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED)
 
 public abstract class GenericDaoImpl<E, K extends Serializable>  implements GenericDao<E, K> {
 

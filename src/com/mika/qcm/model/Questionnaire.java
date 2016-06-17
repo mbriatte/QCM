@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,8 +44,7 @@ public class Questionnaire implements Serializable {
 		this.libelle = libelle;
 	}
 
-
-
+	
 	public Questionnaire(String libelle) {
 		super();
 		this.libelle = libelle;
@@ -58,17 +58,17 @@ public class Questionnaire implements Serializable {
 	public Questionnaire() {
 		super();
 		questions=new  ArrayList<Question>();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public void addQuestion(Question q) {
 		questions.add(q);
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public void removeQuestion(Question q) {
 		questions.remove(q);
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	public List<Question> getQuestions() {
@@ -78,5 +78,6 @@ public class Questionnaire implements Serializable {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
+
 	
 }

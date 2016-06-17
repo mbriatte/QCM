@@ -7,6 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
 import com.mika.qcm.dao.impl.GenericDaoImpl;
+import com.mika.qcm.model.Proposition;
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
 import com.mika.qcm.service.QuestionnaireService;
@@ -36,33 +37,6 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 	
 
 	@Override
-	public void addQuestionToQuestionnaire(Question q, Questionnaire questionnaire) {
-		questionnaire.addQuestion(q);
-		this.questionDao.add(q);
-		this.questionnaireDao.saveOrUpdate(questionnaire);
-
-	}
-
-	@Override
-	public void removeQuestionFromQuestionnaire(Question q, Questionnaire questionnaire) {
-		questionnaire.removeQuestion(q);
-		this.questionDao.remove(q);
-		this.questionnaireDao.saveOrUpdate(questionnaire);
-		
-	}
-
-	@Override
-	public List<Question> getQuestions(Questionnaire q) {
-		return q.getQuestions();
-	}
-
-	@Override
-	public void removeQuestionnaire(Questionnaire questionnaire) {
-		this.questionnaireDao.remove(questionnaire);
-		
-	}
-
-	@Override
 	public List<Questionnaire> getQuestionnaires() {
 		return this.questionnaireDao.getAll();
 	}
@@ -76,15 +50,16 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 
 	@Override
 	public void addQuestionToQuestionnaire(Question q, Long idquestionnaire) {
-		// TODO Auto-generated method stub
-		
-	}
+		Questionnaire quest= this.getQuestionnaire(idquestionnaire);
 
-	@Override
-	public void removeQuestionFromQuestionnaire(Question q, Long idquestionnaire) {
-		// TODO Auto-generated method stub
-		
+		if (quest!=null) 
+			{
+			quest.addQuestion(q);
+			questionnaireDao.saveOrUpdate(quest);          
+			}	
 	}
+	
+	
 
 	@Override
 	public List<Question> getQuestions(Long idquestionnaire) {
@@ -106,6 +81,21 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 	@Override
 	public Questionnaire getQuestionnaireByName(String questionnaire) {
 		return (Questionnaire) questionnaireDao.findByCriteria(Questionnaire.class, Restrictions.eq("libelle", questionnaire));
+		
+	}
+
+
+	@Override
+	public void removeQuestionFromQuestionnaire(Long idquestion, Long idquestionnaire) {
+		Question q=questionDao.find(idquestion);
+		Questionnaire quest= questionnaireDao.find(idquestionnaire);
+		if (q!=null &&  quest !=null){			
+			System.out.println("questionnaire id=" +idquestionnaire);
+			quest.removeQuestion(q);
+			questionnaireDao.saveOrUpdate(quest);
+			questionDao.remove(q);
+		}	
+		else 	System.out.println("questionnaire id=" +idquestionnaire +"  idquestion = "+ idquestion );
 		
 	}
 

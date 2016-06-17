@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
@@ -37,79 +39,77 @@ public class QuestionnaireServiceImplTest {
 	public void setUp() throws Exception {
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		
- 		System.out.println("teardown");
- 		
- 		List<Question> q1= daoquestion.getAll();
-        for (Question quest  : q1)
-      	  daoquestion.remove(quest);
-                                
-         List<Questionnaire> q2= daoquestionnaire.getAll();         
-          for (Questionnaire quest  : q2)
-        	  daoquestionnaire.remove(quest);
-                     
-	}
+	
 
 	@Test
 	public void TestAddQuestionnaire() {
 		int sizebefore=daoquestionnaire.getAll().size();
 		Questionnaire q = new Questionnaire("ceci est un questionnaire");
 		questionnaireService.addQuestionnaire(q);
-		assertFalse(sizebefore==daoquestionnaire.getAll().size());
-		
+		assertEquals(sizebefore+1,daoquestionnaire.getAll().size());
 	}
 	
 	@Test
 	public void TestAddQuestionTonewQuestionnaire() {
 		
-		Questionnaire q = new Questionnaire("ceci est un questionnaire");
-		Question quest= new  Question("ceci est une question");
-		System.out.println("addQuestion");
-		q.addQuestion(quest);
-		System.out.println("addQuestionnaire");
-		questionnaireService.addQuestionnaire(q);
-		Long id=q.getId();
-		Questionnaire q2=daoquestionnaire.find(id);
+		Questionnaire q = new Questionnaire("ceci est un questionnaire new");
+		Question quest= new  Question("ceci est une question new");		
 	
 		
-		assertFalse(0==q2.getQuestions().size());
+		questionnaireService.addQuestionnaire(q);
+		
+		Long id=q.getId();
+		System.out.println("id="+id);
+		questionnaireService.addQuestionToQuestionnaire(quest, id);
+	
+		Questionnaire q2=daoquestionnaire.find(id);	
+		System.out.println("questionnaire="+q2);
+		assertEquals(1,q2.getQuestions().size());
 		
 	}
 	
 	@Test
 	public void TestAddQuestionToOldQuestionnaire() {
-		
+		System.out.println("debut de test 도도도도도도도도도도도도도도도�");
 		Questionnaire q = new Questionnaire("ceci est un questionnaire");
 		questionnaireService.addQuestionnaire(q);
-		Question quest= new  Question("ceci est une question");
-		System.out.println("addQuestion");
-		q.addQuestion(quest);
-		System.out.println("addQuestionnaire");
-		questionnaireService.saveQuestionnaire(q);
 		Long id=q.getId();
+		Question quest= new  Question("ceci est une question");
+		Question quest2= new  Question("ceci est une question");
+		
+		
+		questionnaireService.getQuestionnaire(id);
+		
+		questionnaireService.addQuestionToQuestionnaire(quest, id);
+		questionnaireService.addQuestionToQuestionnaire(quest2, id);
+		
 		Questionnaire q2=daoquestionnaire.find(id);
-	
-		
-		assertFalse(0==q2.getQuestions().size());
-		
+		assertEquals(2,q2.getQuestions().size());
+		System.out.println("fin de test 도도도도도도도도도도도도도도도�");
 	}
+	
 	
 	@Test
 	public void TestRemoveQuestionToQuestionnaire() {
 		
-		Questionnaire q = new Questionnaire("ceci est un questionnaire");
-		Question quest1= new  Question("ceci est une question");
-		Question quest2= new  Question("ceci est une question2");
-		q.addQuestion(quest1);
-		q.addQuestion(quest2);
-		
-		assertTrue(2==q.getQuestions().size());
+		Questionnaire q = new Questionnaire("ceci est un questionnaire remove");
+		Question quest1= new  Question("ceci est une question remove");
+		Question quest2= new  Question("ceci est une question2 remove");
+		questionnaireService.saveQuestionnaire(q);
+		Long id=q.getId();
+		questionnaireService.addQuestionToQuestionnaire(quest1, id);
+		questionnaireService.addQuestionToQuestionnaire(quest2, id);
+	
+		Questionnaire q2 =daoquestionnaire.find(id);
+		assertEquals(2,q2.getQuestions().size());
 
-		q.removeQuestion(quest2);
-		questionnaireService.removeQuestionFromQuestionnaire(quest2, q);
-		assertTrue(1==q.getQuestions().size());
+		questionnaireService.removeQuestionFromQuestionnaire(quest2.getId(), id);
+		Questionnaire q3 =daoquestionnaire.find(id);
+		
+		assertEquals(1,q3.getQuestions().size());
+		
 	}
+
+	
 	
 }

@@ -24,25 +24,6 @@ public class QuestionnaireDaoImplTest {
 	 QuestionnaireDao daoquestionnaire = context.getBean(QuestionnaireDao.class);
      
 	    
-	 	@Before
-	    public void setUp() {
-	 		System.out.println("setup");
-	        for (int i = 1; i < 5; i++) {
-	            Questionnaire e = new Questionnaire( "test "+i);
-	            daoquestionnaire.add(e);
-	            
-	        }
-	    }
-	 	
-	 	
-	 	@After
-	    public void tearDown() {
-	 		  List<Questionnaire> q2= daoquestionnaire.getAll();         
-	          for (Questionnaire quest  : q2)
-	        	  daoquestionnaire.remove(quest);
-	        
-	    }
-	 	
 	    @Test
 	    public void testAdd() {
 	    	System.out.println("test add");
@@ -53,6 +34,22 @@ public class QuestionnaireDaoImplTest {
 	        int newSize = daoquestionnaire.getAll().size();
 	         
 	        assertFalse (oldSize == newSize);
+	        daoquestionnaire.remove(e);
+	    }
+	    
+	    @Test
+	    public void testAdd2element() {
+	    	System.out.println("test add");
+	        int oldSize = daoquestionnaire.getAll().size();
+	        Questionnaire e = new Questionnaire("test");
+	        daoquestionnaire.add(e);
+	        Questionnaire e2 = new Questionnaire("test2");
+	        daoquestionnaire.add(e2);
+	        
+	        int newSize = daoquestionnaire.getAll().size();
+	         
+	        assertFalse (oldSize == newSize);
+	        assertEquals (oldSize+ 2 , newSize);
 	        daoquestionnaire.remove(e);
 	    }
 	  

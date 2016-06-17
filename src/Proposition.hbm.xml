@@ -5,18 +5,12 @@
  
 <hibernate-mapping package="com.mika.qcm.model">
  
-    <class name="Question" table="Question">
+    <class name="Proposition" table="Proposition">
         <id name="id" column="ID" type="long">
             <generator class="native" />
         </id>
  
-        <property name="enonce" column="enonce" type="string"/>
- 
-  <list name="propositions" cascade="all" lazy="false">
-            <key column ="proposition_id" />
-            <index column="id"/>
-            <one-to-many class="com.mika.qcm.model.Proposition" />
-        </list>
+        <property name="contenu" column="contenu" type="string"/>
  
     </class>
 </hibernate-mapping>
