@@ -1,5 +1,7 @@
 package com.mika.qcm.service;
 
+import java.util.List;
+
 import com.mika.qcm.model.Proposition;
 import com.mika.qcm.model.PropositionVO;
 import com.mika.qcm.model.Question;
@@ -12,11 +14,12 @@ public interface QuestionService {
 	
 	void removeQuestion(Long idquestion);
 	
-
-	void addPropositionToQuestion(Long idproposition, Long idquestion);
+	List<Question> getQuestionWithoutQuestionnaire();
+	
+	void addPropositionToQuestion(Proposition p, Long idquestion);
 	
 	void removePropositionFromQuestion(Long idproposition, Long idquestion);
 	
-	void saveProposition(Proposition p);
+	
 	void saveQuestion(Question q);
 }

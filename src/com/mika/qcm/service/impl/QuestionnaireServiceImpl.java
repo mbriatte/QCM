@@ -3,6 +3,8 @@ package com.mika.qcm.service.impl;
 import java.util.List;
 
 import org.hibernate.criterion.Restrictions;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
@@ -10,6 +12,7 @@ import com.mika.qcm.dao.impl.GenericDaoImpl;
 import com.mika.qcm.model.Proposition;
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
+import com.mika.qcm.model.QuestionnaireVO;
 import com.mika.qcm.service.QuestionnaireService;
 
 public class QuestionnaireServiceImpl  implements QuestionnaireService {
@@ -31,6 +34,7 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 	
 	@Override
 	public void addQuestionnaire(Questionnaire q) {
+		
 		this.questionnaireDao.add(q);
 		
 	}
@@ -74,16 +78,28 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 	}
 
 	@Override
+
 	public Questionnaire getQuestionnaire(Long idquestionnaire) {
-		return questionnaireDao.find(idquestionnaire);
+		Questionnaire q=questionnaireDao.find(idquestionnaire);
+		return q;
+		
+		
 	}
 
 	@Override
 	public Questionnaire getQuestionnaireByName(String questionnaire) {
-		return (Questionnaire) questionnaireDao.findByCriteria(Questionnaire.class, Restrictions.eq("libelle", questionnaire));
+		 Questionnaire q= (Questionnaire) questionnaireDao.findByCriteria(Questionnaire.class, Restrictions.eq("libelle", questionnaire)).get(0);
 		
+		 return q;
 	}
 
+	@Override
+	public Questionnaire getQuestionnaireWithAssociationByName(String questionnaire){
+		 Questionnaire q= questionnaireDao.findBynamewithAssociation(questionnaire);
+		 return q;
+	}
+	
+	
 
 	@Override
 	public void removeQuestionFromQuestionnaire(Long idquestion, Long idquestionnaire) {

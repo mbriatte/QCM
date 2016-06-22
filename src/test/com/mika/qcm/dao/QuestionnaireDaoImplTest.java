@@ -103,16 +103,25 @@ public class QuestionnaireDaoImplTest {
 	    	 Questionnaire e = new Questionnaire("testrecehrche");
 		        daoquestionnaire.add(e);
 	    		    			  
-		        List<Questionnaire>  l=(List<Questionnaire>) daoquestionnaire.findByCriteria(Questionnaire.class, Restrictions.eq("libelle", "testrecehrche"));
-		        Questionnaire f=l.get(0);
+		        Questionnaire f= daoquestionnaire.findBynamewithAssociation("testrecehrche");
+				 
 		    	System.out.println("questionnaire nom ="+ f.getLibelle());
-		    	assertTrue (l.size()!=0);
-		    	l=(List<Questionnaire>) daoquestionnaire.findByCriteria(Questionnaire.class, Restrictions.eq("libelle", "inconnu"));
-		    	assertTrue (l.size()==0);
+		    	assertEquals (f.getLibelle(),"testrecehrche");
+		    	 f= daoquestionnaire.findBynamewithAssociation("inconnu");
+		    	assertTrue (f==null);
 		       
-		    
-	    	
+	    }
+
+	    @Test
+	    public void testFindbynamegeneric() {
+	    	 Questionnaire e = new Questionnaire("testrecehrche2");
+		        daoquestionnaire.add(e);
+	    		    			  
+		        List<Questionnaire> l=  (List<Questionnaire>) daoquestionnaire.findByCriteria(Questionnaire.class, Restrictions.eq("libelle","testrecehrche2"));
+		        Questionnaire f= l.get(0);
+		    	System.out.println("questionnaire nom ="+ f.getLibelle());
+		    	assertEquals (f.getLibelle(),"testrecehrche2");
+		    			       	    	
 	    }
 	    
-
 }

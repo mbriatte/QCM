@@ -71,6 +71,16 @@ public class QuestionDaoImplTestTest {
         daoquestion.remove(e);
         int newSize = daoquestion.getAll().size();
          
-        assertFalse (oldSize == newSize);	}
+        assertFalse (oldSize == newSize);	
+        }
+	
+	@Test
+	public void testFindwithoutQuestionnaire() {
+		
+		
+		List<Question> l= daoquestion.findQuestionWithoutQuestionnaire();
+         
+        assertTrue (l.size() > 0);	
+        }
 
 }

@@ -16,6 +16,7 @@ public interface QuestionnaireService {
 	List<Questionnaire> getQuestionnaires();
 	Questionnaire getQuestionnaire(Long idquestionnaire);
 	Questionnaire getQuestionnaireByName(String questionnaire);
+	Questionnaire getQuestionnaireWithAssociationByName(String questionnaire);
 	
 	
 	void addQuestionToQuestionnaire(Question q, Long idquestionnaire);

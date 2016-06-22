@@ -1,10 +1,13 @@
 package com.mika.qcm.service.impl;
 
+import java.util.List;
+
 import com.mika.qcm.dao.PropositionDao;
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
 import com.mika.qcm.model.Proposition;
 import com.mika.qcm.model.Question;
+import com.mika.qcm.model.Questionnaire;
 import com.mika.qcm.service.QuestionService;
 
 public class QuestionServiceImpl implements QuestionService {
@@ -34,21 +37,19 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 
-
-
 	@Override
 	public void removePropositionFromQuestion(Long idproposition, Long idquestion) {
 		Proposition p = this.propositionDao.find(idproposition);
-		if (p!=null) this.propositionDao.remove(p);
+		Question q = this.questionDao.find(idquestion);
+		if (p!=null && q!=null) 
+			{
+			q.removeProposition(p);
+			this.questionDao.saveOrUpdate(q);
+			this.propositionDao.remove(p);
+			}
 		
 	}
 
-
-	@Override
-	public void saveProposition(Proposition p) {
-		if (p!=null) this.propositionDao.saveOrUpdate(p);
-		
-	}
 
 
 	@Override
@@ -58,16 +59,26 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 
+
+
+
 	@Override
-	public void addPropositionToQuestion(Long idproposition, Long idquestion) {
-		Proposition p = this.propositionDao.find(idproposition);
-		Question q = this.questionDao.find(idquestion);
-		q.addProposition(p);
-		this.questionDao.saveOrUpdate(q);
-		this.propositionDao.saveOrUpdate(p);
+	public void addPropositionToQuestion(Proposition p, Long idquestion) {
+		Question quest= this.questionDao.find(idquestion);
+
+		if (quest!=null) 
+			{
+			quest.addProposition(p);
+			this.questionDao.saveOrUpdate(quest);          
+			}	
 		
-		
-		
+	}
+
+
+	@Override
+	public List<Question> getQuestionWithoutQuestionnaire() {
+	
+		return questionDao.findQuestionWithoutQuestionnaire();
 	}
 	
 }
