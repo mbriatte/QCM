@@ -57,6 +57,24 @@ public class QuestionServiceImplTest {
 	}
 	
 	@Test
+	public void testaddQuestionWithProposition() {
+		
+		int sizebefore = daoquestion.getAll().size();
+		Question q = new Question();
+		q.setEnonce("ceci est un enoncé");
+		Proposition p = new Proposition("ceci est une proposition");
+		q.addProposition(p);
+		this.questionService.addQuestion(q);
+		Long id = q.getId();
+		int sizeafter = daoquestion.getAll().size();
+		assertEquals(sizebefore+1,sizeafter);
+		Question q2=daoquestion.find(id);
+		
+		assertEquals(q2.getPropositions().size(),1);
+		
+	}
+	
+	@Test
 	public void testremoveQuestion() {
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
@@ -139,6 +157,23 @@ public class QuestionServiceImplTest {
 		questionService.saveQuestion(q);
 		int sizeafter = daoquestion.getAll().size();
 		assertEquals(sizebefore+1,sizeafter);
+		
+	}
+	
+	@Test
+	public void testsaveQuestionwithassociation() {
+		int sizebefore = daoquestion.getAll().size();
+		Question q = new Question();
+		q.setEnonce("ceci est un enoncé");
+		Proposition p = new Proposition("ceci est une proposition");
+		q.addProposition(p);
+		questionService.saveQuestion(q);
+		Long id = q.getId();
+		int sizeafter = daoquestion.getAll().size();
+		assertEquals(sizebefore+1,sizeafter);
+		
+		Question s=questionService.getQuestion(id);
+		assertEquals(s.getPropositions().size(),1);
 		
 	}
 

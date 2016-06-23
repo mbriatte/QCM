@@ -2,7 +2,6 @@ package com.mika.qcm.dao;
 
 import java.util.List;
 
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 
 public interface GenericDao <E,K> {

@@ -2,15 +2,12 @@ package com.mika.qcm.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
-import javax.persistence.Column;
+import java.util.List;
+
 import javax.persistence.Entity;
 
-import javax.persistence.Table;
+
 import javax.persistence.Transient;
 
 @SuppressWarnings("serial")

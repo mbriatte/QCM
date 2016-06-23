@@ -4,11 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
 import javax.persistence.Transient;
 
 @SuppressWarnings("serial")
@@ -21,14 +19,13 @@ public class Question implements Serializable {
 	private List<Proposition> propositions= new ArrayList<Proposition>();
 	
 	private Long id;
-
+	
+	private String enonce ;
 	
 	public String toString() {
 		return "Question [id=" + id + ", enonce=" + enonce + "]";
 	}
 
-
-	private String enonce ;
 
 	public Long getId() {
 		return id;

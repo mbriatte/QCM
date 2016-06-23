@@ -166,6 +166,32 @@ public class QuestionnaireServiceImplTest {
 	}
 	
 	@Test
+	public void TestSaveQuestion() {
+		
+		Questionnaire q = new Questionnaire("ceci est un questionnaire ");
+		Question quest1= new  Question("ceci est une question ");
+		q.addQuestion(quest1);
+		questionnaireService.saveQuestionnaire(q);
+		Long id=q.getId();
+		
+		Question quest2= new  Question("ceci est une question2 ");
+		q.addQuestion(quest2);
+		questionnaireService.saveQuestionnaire(q);
+		List l = questionnaireService.getQuestions(id);
+		
+		assertEquals(l.size(),2);
+		
+		Question quest3= new  Question("ceci est une question3 ");
+		q.addQuestion(quest3);
+		q.setLibelle("ceci est le questionaire modifié");
+		questionnaireService.saveQuestionnaire(q);
+		
+		l = questionnaireService.getQuestions(id);
+		assertEquals(l.size(),3);
+		
+	}
+	
+	@Test
 	public void TestgetQuestionnaireByNameSpecific() {
 		
 		Questionnaire q = new Questionnaire("ceci est un questionnaire 1");

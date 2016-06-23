@@ -35,6 +35,7 @@ public class QuestionnaireDaoImplTest {
 	         
 	        assertFalse (oldSize == newSize);
 	        daoquestionnaire.remove(e);
+	     
 	    }
 	    
 	    @Test
@@ -53,7 +54,24 @@ public class QuestionnaireDaoImplTest {
 	        daoquestionnaire.remove(e);
 	    }
 	  
-	     
+	    @Test
+	    public void testAddwithAssociation() {
+	    	
+	        int oldSize = daoquestionnaire.getAll().size();
+	        Questionnaire e = new Questionnaire("questionnaire france");
+	        Question q= new Question("Annee de la revolution francaise");
+	        e.addQuestion(q);
+	        daoquestionnaire.add(e);
+	        Long id=e.getId();
+	        int newSize = daoquestionnaire.getAll().size();
+
+	        assertEquals (oldSize+ 1 , newSize);
+	        Questionnaire f=daoquestionnaire.find(id);
+	        assert(f!=null);
+	        assertEquals(f.getQuestions().size(),1);
+	    }
+	  
+	    
 	    @Test
 	    public void testUpdate() {
 	    	System.out.println("test update");
@@ -103,11 +121,11 @@ public class QuestionnaireDaoImplTest {
 	    	 Questionnaire e = new Questionnaire("testrecehrche");
 		        daoquestionnaire.add(e);
 	    		    			  
-		        Questionnaire f= daoquestionnaire.findBynamewithAssociation("testrecehrche");
+		        Questionnaire f= daoquestionnaire.findByNameWithAssociations("testrecehrche");
 				 
 		    	System.out.println("questionnaire nom ="+ f.getLibelle());
 		    	assertEquals (f.getLibelle(),"testrecehrche");
-		    	 f= daoquestionnaire.findBynamewithAssociation("inconnu");
+		    	 f= daoquestionnaire.findByNameWithAssociations("inconnu");
 		    	assertTrue (f==null);
 		       
 	    }

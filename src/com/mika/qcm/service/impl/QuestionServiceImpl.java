@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.mika.qcm.dao.PropositionDao;
 import com.mika.qcm.dao.QuestionDao;
-import com.mika.qcm.dao.QuestionnaireDao;
+
 import com.mika.qcm.model.Proposition;
 import com.mika.qcm.model.Question;
-import com.mika.qcm.model.Questionnaire;
+
 import com.mika.qcm.service.QuestionService;
 
 public class QuestionServiceImpl implements QuestionService {
@@ -61,9 +61,6 @@ public class QuestionServiceImpl implements QuestionService {
 		if (q!=null) this.questionDao.saveOrUpdate(q);
 		
 	}
-
-
-
 
 
 	@Override

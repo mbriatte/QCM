@@ -3,16 +3,13 @@ package com.mika.qcm.service.impl;
 import java.util.List;
 
 import org.hibernate.criterion.Restrictions;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
-import com.mika.qcm.dao.impl.GenericDaoImpl;
-import com.mika.qcm.model.Proposition;
+
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
-import com.mika.qcm.model.QuestionnaireVO;
 import com.mika.qcm.service.QuestionnaireService;
 
 public class QuestionnaireServiceImpl  implements QuestionnaireService {
@@ -95,7 +92,7 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 
 	@Override
 	public Questionnaire getQuestionnaireWithAssociationByName(String questionnaire){
-		 Questionnaire q= questionnaireDao.findBynamewithAssociation(questionnaire);
+		 Questionnaire q= questionnaireDao.findByNameWithAssociations(questionnaire);
 		 return q;
 	}
 	
@@ -106,13 +103,10 @@ public class QuestionnaireServiceImpl  implements QuestionnaireService {
 		Question q=questionDao.find(idquestion);
 		Questionnaire quest= questionnaireDao.find(idquestionnaire);
 		if (q!=null &&  quest !=null){			
-			System.out.println("questionnaire id=" +idquestionnaire);
 			quest.removeQuestion(q);
 			questionnaireDao.saveOrUpdate(quest);
 			questionDao.remove(q);
-		}	
-		else 	System.out.println("questionnaire id=" +idquestionnaire +"  idquestion = "+ idquestion );
-		
+		}			
 	}
 
 }
