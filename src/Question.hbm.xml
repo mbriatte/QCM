@@ -12,9 +12,9 @@
  
         <property name="enonce" column="enonce" type="string"/>
  
-  <list name="propositions" cascade="all" lazy="true">
+  <list name="propositions" cascade="all" lazy="false">
             <key column ="proposition_id" />
-            <index column="id"/>
+            <index column="idx"/>
             <one-to-many class="com.mika.qcm.model.Proposition" />
         </list>
  

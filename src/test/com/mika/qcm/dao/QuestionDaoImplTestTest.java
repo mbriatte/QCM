@@ -13,6 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
+import com.mika.qcm.model.Proposition;
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
 import com.mika.qcm.service.QuestionService;
@@ -34,41 +35,27 @@ public class QuestionDaoImplTestTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
-	public void setUp() throws Exception {
-		System.out.println("setup");
-		Questionnaire e = new Questionnaire("test Questionnaire");
+	
+	@Test
+	public void testremoveQuestion() {
+		
+		Questionnaire e = new Questionnaire("test Questionnaire ");
 		daoquestionnaire.add(e);
+		Long cpt=0L;
         for (int i = 1; i <= 2; i++) {
             Question q = new Question( "test "+i);
             e.addQuestion(q);
             daoquestionnaire.saveOrUpdate(e);
             daoquestion.add(q);
+            cpt=q.getId();
         }
-	}
-
-	//@After
-	public void tearDown() throws Exception {
-		System.out.println("teardown");
- 		
- 		List<Question> q1= daoquestion.getAll();
-        for (Question quest  : q1)
-      	  daoquestion.remove(quest);
-                                
-         List<Questionnaire> q2= daoquestionnaire.getAll();         
-          for (Questionnaire quest  : q2)
-        	  daoquestionnaire.remove(quest);
-	}
-
-	@Test
-	public void testremoveQuestion() {
+        
 		
-		
-		System.out.println("test remove");
         int oldSize = daoquestion.getAll().size();
         System.out.println("remove "+ oldSize);
-        Question e = daoquestion.getAll().get(0);
-        daoquestion.remove(e);
+      
+        Question q=daoquestion.find(cpt);
+        daoquestion.remove(q);
         int newSize = daoquestion.getAll().size();
          
         assertFalse (oldSize == newSize);	
@@ -82,5 +69,41 @@ public class QuestionDaoImplTestTest {
          
         assertTrue (l.size() > 0);	
         }
+	
+	@Test
+	public void testAddQuestion(){
+		int sizebefore = daoquestion.getAll().size();
+		Question q = new Question();
+		q.setEnonce("ceci est un enoncé");
+		daoquestion.add(q);
+		int sizeafter = daoquestion.getAll().size();
+		assertEquals(sizebefore+1,sizeafter);
+	}
+	
+	@Test
+	public void testRemoveQuestion(){
+		int sizebefore = daoquestion.getAll().size();
+		Question q = new Question();
+		q.setEnonce("ceci est un enoncé");
+		daoquestion.add(q);
+		int sizeafter = daoquestion.getAll().size();
+		assertEquals(sizebefore+1,sizeafter);
+		sizebefore=sizeafter;
+		daoquestion.remove(q);
+		 sizeafter = daoquestion.getAll().size();
+		assertEquals(sizebefore,sizeafter+1);
+	}
+	
+	@Test
+	public void testSaveQuestion(){
+		int sizebefore = daoquestion.getAll().size();
+		Question q = new Question();
+		q.setEnonce("ceci est un enoncé");
+		daoquestion.add(q);
+		int sizeafter = daoquestion.getAll().size();
+		assertEquals(sizebefore+1,sizeafter);
+		q.setEnonce("ceci est un ennoncé modifié");
+		daoquestion.update(q);
+	}
 
 }

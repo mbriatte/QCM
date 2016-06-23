@@ -22,6 +22,10 @@ public class QuestionServiceImpl implements QuestionService {
 		this.questionDao=q;
 	}
 
+	public void setPropositionDao(PropositionDao q)
+	{
+		this.propositionDao=q;
+	}
 
 	@Override
 	public void addQuestion(Question q) {
@@ -79,6 +83,18 @@ public class QuestionServiceImpl implements QuestionService {
 	public List<Question> getQuestionWithoutQuestionnaire() {
 	
 		return questionDao.findQuestionWithoutQuestionnaire();
+	}
+
+
+	@Override
+	public Question getQuestion(Long id) {
+		return questionDao.find(id);
+	}
+
+
+	@Override
+	public List<Question> getQuestions() {
+		return questionDao.getAll();
 	}
 	
 }

@@ -57,6 +57,10 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="PropositionDao" class="com.mika.qcm.dao.impl.PropositionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
 	
 	<bean id="QuestionnaireService" 
                 class="com.mika.qcm.service.impl.QuestionnaireServiceImpl">
@@ -69,6 +73,7 @@
 	<bean id="QuestionService" 
                 class="com.mika.qcm.service.impl.QuestionServiceImpl">
 		<property name="questionDao" ref="QuestionDao" />
+		<property name="propositionDao" ref="PropositionDao" />
 	</bean>
 	
 

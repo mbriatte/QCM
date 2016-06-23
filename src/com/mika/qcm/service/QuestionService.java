@@ -20,6 +20,9 @@ public interface QuestionService {
 	
 	void removePropositionFromQuestion(Long idproposition, Long idquestion);
 	
-	
 	void saveQuestion(Question q);
+	
+	Question getQuestion(Long id);
+	
+	List<Question> getQuestions();
 }
