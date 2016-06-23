@@ -4,20 +4,20 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-import org.junit.After;
+
 import org.junit.AfterClass;
-import org.junit.Before;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
-import com.mika.qcm.model.Proposition;
+
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
 import com.mika.qcm.service.QuestionService;
-import com.mika.qcm.service.QuestionnaireService;
+
 
 public class QuestionDaoImplTestTest {
 	 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-database.xml");

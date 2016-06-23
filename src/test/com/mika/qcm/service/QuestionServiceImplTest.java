@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-import org.hibernate.Hibernate;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,7 +17,7 @@ import com.mika.qcm.dao.QuestionnaireDao;
 import com.mika.qcm.model.Proposition;
 import com.mika.qcm.model.Question;
 import com.mika.qcm.service.QuestionService;
-import com.mika.qcm.service.QuestionnaireService;
+
 
 public class QuestionServiceImplTest {
 	

@@ -2,18 +2,14 @@ package test.com.mika.qcm.dao;
 
 import static org.junit.Assert.*;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.criterion.Restrictions;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mika.qcm.dao.QuestionDao;
+
 import com.mika.qcm.dao.QuestionnaireDao;
 import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
