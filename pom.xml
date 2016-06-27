@@ -40,7 +40,18 @@
    		<groupId>org.springframework</groupId>
    		<artifactId>spring-orm</artifactId>
    		<version>4.2.6.RELEASE</version>
-</dependency>
+	</dependency>
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-jdbc</artifactId>
+    	<version>4.2.6.RELEASE</version>
+	</dependency>
+	<dependency>
+    	<groupId>org.springframework</groupId>
+  		<artifactId>spring-test</artifactId>
+    	<version>4.2.6.RELEASE</version>
+    	<scope>test</scope>
+	</dependency>
   	<dependency>
   		<groupId>commons-logging</groupId>
   		<artifactId>commons-logging</artifactId>
@@ -67,17 +78,7 @@
   		<version>4.11</version>
   		<scope>test</scope>
   	</dependency>
-  	<dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-jdbc</artifactId>
-    	<version>4.2.6.RELEASE</version>
-	</dependency>
-	<dependency>
-    	<groupId>org.springframework</groupId>
-  	  <artifactId>spring-test</artifactId>
-    	<version>4.2.6.RELEASE</version>
-    	<scope>test</scope>
-</dependency>
+  
 
   </dependencies>
 </project>
