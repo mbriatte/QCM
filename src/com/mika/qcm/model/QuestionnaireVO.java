@@ -1,8 +1,9 @@
 package com.mika.qcm.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class QuestionnaireVO {
+public class QuestionnaireVO implements Serializable {
 
 	
 	private Long id;
