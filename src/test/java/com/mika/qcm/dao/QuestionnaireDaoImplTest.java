@@ -1,4 +1,4 @@
-package test.com.mika.qcm.dao;
+package test.java.com.mika.qcm.dao;
 
 import static org.junit.Assert.*;
 
@@ -15,7 +15,7 @@ import com.mika.qcm.model.Question;
 import com.mika.qcm.model.Questionnaire;
 
 public class QuestionnaireDaoImplTest {
-	 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/test/com/mika/qcm/spring-database.xml");
+	 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/test/java/com/mika/qcm/spring-database.xml");
 		
 	 QuestionnaireDao daoquestionnaire = context.getBean(QuestionnaireDao.class);
      

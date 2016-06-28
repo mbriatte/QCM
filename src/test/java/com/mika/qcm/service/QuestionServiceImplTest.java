@@ -1,4 +1,4 @@
-package test.com.mika.qcm.service;
+package test.java.com.mika.qcm.service;
 
 import static org.junit.Assert.*;
 
@@ -21,7 +21,7 @@ import com.mika.qcm.service.QuestionService;
 
 public class QuestionServiceImplTest {
 	
-	 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/test/com/mika/qcm/spring-database.xml");
+	 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/test/java/com/mika/qcm/spring-database.xml");
 		
 	 QuestionnaireDao daoquestionnaire = context.getBean(QuestionnaireDao.class);
 	 QuestionDao daoquestion = context.getBean(QuestionDao.class);

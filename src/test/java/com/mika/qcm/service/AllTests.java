@@ -1,4 +1,4 @@
-package test.com.mika.qcm.service;
+package test.java.com.mika.qcm.service;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

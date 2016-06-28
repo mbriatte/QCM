@@ -1,4 +1,4 @@
-package test.com.mika.qcm.dao;
+package test.java.com.mika.qcm.dao;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
