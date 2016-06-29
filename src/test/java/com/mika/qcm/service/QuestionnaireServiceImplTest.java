@@ -36,6 +36,7 @@ public class QuestionnaireServiceImplTest {
 
 	@Before
 	public void setUp() throws Exception {
+		System.out.print("ceci est un test");
 	}
 
 	

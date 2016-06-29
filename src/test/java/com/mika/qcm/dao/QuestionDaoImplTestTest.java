@@ -6,7 +6,7 @@ import java.util.List;
 
 
 import org.junit.AfterClass;
-
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -23,7 +23,7 @@ public class QuestionDaoImplTestTest {
 	 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/test/java/com/mika/qcm/spring-database.xml");
 		
 	 
-	 QuestionDao daoquestion = context.getBean(QuestionDao.class);
+	  QuestionDao daoquestion = context.getBean(QuestionDao.class);
 	 QuestionnaireDao daoquestionnaire = context.getBean(QuestionnaireDao.class);
 	 QuestionService questionService = context.getBean(QuestionService.class);
 	 
@@ -34,7 +34,17 @@ public class QuestionDaoImplTestTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
-
+	
+	@Before
+	public void setUp() throws Exception 
+	{
+	 
+		Questionnaire q= new Questionnaire("Questionnaire init");
+		daoquestionnaire.add(q);
+		
+		Question quest=new Question("Question init");
+		daoquestion.add(quest);
+	}
 	
 	@Test
 	public void testremoveQuestion() {

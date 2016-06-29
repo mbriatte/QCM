@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import org.hibernate.criterion.Restrictions;
-
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,6 +19,12 @@ public class QuestionnaireDaoImplTest {
 		
 	 QuestionnaireDao daoquestionnaire = context.getBean(QuestionnaireDao.class);
      
+	 @Before
+		public void setUp() throws Exception 
+		{
+			Questionnaire q= new Questionnaire("Questionnaire init1");
+			daoquestionnaire.add(q);
+		}
 	    
 	    @Test
 	    public void testAdd() {

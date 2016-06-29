@@ -16,6 +16,7 @@ import com.mika.qcm.dao.QuestionDao;
 import com.mika.qcm.dao.QuestionnaireDao;
 import com.mika.qcm.model.Proposition;
 import com.mika.qcm.model.Question;
+import com.mika.qcm.model.Questionnaire;
 import com.mika.qcm.service.QuestionService;
 
 
@@ -37,6 +38,13 @@ public class QuestionServiceImplTest {
 
 	@Before
 	public void setUp() throws Exception {
+		Question q=new Question("ceci est une question sans questionnaire");
+		daoquestion.add(q);
+		
+		Questionnaire quest = new Questionnaire("ceci est un questionnaire");
+		quest.addQuestion(new Question("ceci est une question d'un questionnaire"));
+		daoquestionnaire.add(quest);
+
 	}
 
 	@After
