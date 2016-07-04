@@ -9,16 +9,21 @@ import javax.persistence.Entity;
 
 
 import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @SuppressWarnings("serial")
 @Entity
 
+@XmlRootElement(name = "questionnaire")
+
 
 public class Questionnaire implements Serializable {
 	
+	
 
 	private Long id;
-
 
 	private String libelle ;
 	

@@ -8,10 +8,12 @@ import java.util.List;
 import javax.persistence.Entity;
 
 import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @SuppressWarnings("serial")
 @Entity
 
+@XmlRootElement(name = "question")
 
 public class Question implements Serializable {
 	

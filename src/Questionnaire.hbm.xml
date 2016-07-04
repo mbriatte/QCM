@@ -10,7 +10,7 @@
         </id>
         
          <property name="libelle" column="Libelle" type="string"/>
-        
+                  
           <list name="questions" cascade="all" lazy="false"  fetch="join" >
             <key column ="questionnaire_id" />
             <index column="idx"/>

@@ -73,8 +73,6 @@
 		<property name="questionnaireDao" ref="QuestionnaireDao" />
 		<property name="questionDao" ref="QuestionDao" />
 	</bean>
-	
-	 
 	 
 	<bean id="QuestionService" 
                 class="com.mika.qcm.service.impl.QuestionServiceImpl">
