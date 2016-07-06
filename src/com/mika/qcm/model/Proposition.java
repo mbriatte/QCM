@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @SuppressWarnings("serial")
 @Entity
 
-@XmlRootElement(name = "questionnaire")
+@XmlRootElement(name = "proposition")
 public class Proposition implements Serializable {
 	
 	private Long id;
