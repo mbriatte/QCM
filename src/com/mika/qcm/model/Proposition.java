@@ -3,9 +3,11 @@ package com.mika.qcm.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.xml.bind.annotation.XmlRootElement;
 @SuppressWarnings("serial")
 @Entity
 
+@XmlRootElement(name = "questionnaire")
 public class Proposition implements Serializable {
 	
 	private Long id;

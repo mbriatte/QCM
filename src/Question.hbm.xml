@@ -13,7 +13,7 @@
         <property name="enonce" column="enonce" type="string"/>
  
   <list name="propositions" cascade="all" lazy="false">
-            <key column ="proposition_id" />
+            <key column ="question_id" />
             <index column="idx"/>
             <one-to-many class="com.mika.qcm.model.Proposition" />
         </list>

@@ -33,8 +33,8 @@ import org.springframework.http.HttpStatus;
 	@Autowired 
 	private QuestionnaireService questionnaireService; 
 	
-	@RequestMapping(value = "/questionnaires", method = RequestMethod.GET,produces = { "application/json","application/xml"}) 		
-	public @ResponseBody  ResponseEntity<Object> getQuestionnairesByName(HttpServletRequest request) {
+	@RequestMapping(value = "/questionnaires", method = RequestMethod.GET,produces = { "application/json"}) 		
+	public @ResponseBody  ResponseEntity<Object> getQuestionnaires(HttpServletRequest request) {
 		// recherche par nom
 		String name=request.getParameter("name");
 		if (name!=null && name.length()>0) 
@@ -54,20 +54,22 @@ import org.springframework.http.HttpStatus;
 	@RequestMapping(value = "/questionnaire/{id}", method = RequestMethod.GET,produces = { "application/json","application/xml","text/plain"}) 
 	public @ResponseBody  ResponseEntity<Object> getQuestionnaireById(@PathVariable String id,@RequestHeader(value="Accept") String accept) {
 		Questionnaire q=null;
+		HttpStatus httpretour = HttpStatus.NOT_FOUND;
 		try
 		{
-		Long ident=Long.parseLong(id);
-		 q=questionnaireService.getQuestionnaire(ident);
+			 Long ident=Long.parseLong(id);
+			 q=questionnaireService.getQuestionnaire(ident);
+			 if (q!=null) httpretour = HttpStatus.OK;
 		}
 		catch (Exception e)
 		{
 			return new ResponseEntity<Object>( "une erreur s'est produite",HttpStatus.BAD_REQUEST) ;
 		}
 		
-		if( accept.equalsIgnoreCase("text/plain")) {
-			return new ResponseEntity<Object>(q.toString(), HttpStatus.OK);
+		if( accept.equalsIgnoreCase("text/plain") && q!=null) {
+			return new ResponseEntity<Object>(q.toString(), httpretour);
 			}
-		else return new ResponseEntity<Object>(q, HttpStatus.OK);
+		else return new ResponseEntity<Object>(q, httpretour);
 		} 
 	
 	@RequestMapping(value = "/questionnaire", method = RequestMethod.POST,consumes= { "application/json","application/xml"}) 
@@ -92,36 +94,43 @@ import org.springframework.http.HttpStatus;
 	
 	@RequestMapping(value = "/questionnaire/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody  ResponseEntity<Object> delQuestionnaire(@PathVariable String id) {
+		HttpStatus httpretour = HttpStatus.NOT_FOUND;
 		try
 		{
 		Long ident=Long.parseLong(id);
-		 questionnaireService.removeQuestionnaire(ident);
+		Questionnaire q=questionnaireService.getQuestionnaire(ident);
+		 if (q!=null) 
+			 {
+			 httpretour = HttpStatus.OK;
+			 questionnaireService.removeQuestionnaire(ident);
+			 }
 		}
 		catch (Exception e)
 		{
 			return new ResponseEntity<Object>( "une erreur s'est produite",HttpStatus.BAD_REQUEST) ;
 		}
-		return new ResponseEntity<Object>(id, HttpStatus.OK);
+		return new ResponseEntity<Object>(id, httpretour);
 		}
 	
-	@RequestMapping(value = "/questionnaire/{id}", method = RequestMethod.PUT,consumes= { "application/json","application/xml"})
+	@RequestMapping(value = "/questionnaire/{id}", method = RequestMethod.PUT,produces = { "application/json","application/xml"},consumes= { "application/json","application/xml"})
 	public @ResponseBody  ResponseEntity<Object> updateQuestionnaire(@PathVariable String id,@RequestBody Questionnaire q) {
+		Questionnaire quest=null;
 		try
 		{
 			Long ident=Long.parseLong(id);
-			Questionnaire quest= questionnaireService.getQuestionnaire(ident);
+			 quest= questionnaireService.getQuestionnaire(ident);
 			if (quest!=null) 
 			{
 				quest.setLibelle(q.getLibelle());
 				questionnaireService.saveQuestionnaire(quest);
 			}
-			else new ResponseEntity<Object>( "questionnaire inconnu",HttpStatus.NOT_FOUND) ;
+			else return new ResponseEntity<Object>( "questionnaire inconnu",HttpStatus.NOT_FOUND) ;
 		}
 		catch (Exception e)
 		{
 			return new ResponseEntity<Object>( "une erreur s'est produite",HttpStatus.BAD_REQUEST) ;
 		}
-		return new ResponseEntity<Object>(id, HttpStatus.OK);
+		return new ResponseEntity<Object>(quest, HttpStatus.OK);
 		}
 
 	}
