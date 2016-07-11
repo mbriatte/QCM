@@ -96,8 +96,7 @@ public class JwtGenerator {
 		//This line will throw an exception if it is not a signed JWS (as expected)
 		SigningKeyResolver resolver = new SigningKeyResolverAdapter();
 		 
-		
-		// attention c'ets space !!!,
+		// attention c'est space !!!,
 		//on va definir inline la classe SigningKeyResolverAdapter
 		//qui va permettre dynamiquement de charger la clef de chiffrment en foocntion de la valeur du keyid
 		Claims claims = Jwts.parser().setSigningKeyResolver(new SigningKeyResolverAdapter() {
