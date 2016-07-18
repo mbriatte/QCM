@@ -67,7 +67,7 @@ public class JwtGeneratorTest {
 		try
 		{
 			jetton=JwtGenerator.parseJWTwithKeyhintinKeyID(jwt);
-			// le jeton est normalement exprirée
+			// le jeton est normalement exprirÃ©e
 			fail();
 		}
 		catch (ExpiredJwtException e)
@@ -87,7 +87,7 @@ public class JwtGeneratorTest {
 		try
 		{
 			jetton=JwtGenerator.parseJWTwithKey(jwt);
-			// si on arrive la c'est qu'il y a un pb puisque le jeton ne peut pas etre decrypté avec la clef normal
+			// si on arrive la c'est qu'il y a un pb puisque le jeton ne peut pas etre decryptÃ© avec la clef normal
 			fail();
 			
 		}

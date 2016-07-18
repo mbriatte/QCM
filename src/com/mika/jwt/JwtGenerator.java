@@ -52,11 +52,11 @@ public class JwtGenerator {
 		 
 		  //Let's set the JWT Claims
 		JwtBuilder builder = Jwts.builder().setId(id) // l'id du jeton -- unique de preference
-		                                .setIssuedAt(now) // est valable à partir de 
-		                                .setSubject(subject)// le sujet poru lequel il est generé
+		                                .setIssuedAt(now) // est valable  Ã  partir de 
+		                                .setSubject(subject)// le sujet poru lequel il est generÃ©
 		                                .setIssuer(issuer) // celui qu'il l'emet
-		                                .setAudience("QCM") // a qui il est destiné
-		                                .setHeaderParam("kid", type_kid) // l'indice poru savoir quelle clef utilisée pour le chiffrement
+		                                .setAudience("QCM") // a qui il est destinÃ©
+		                                .setHeaderParam("kid", type_kid) // l'indice poru savoir quelle clef utilisÃ©e pour le chiffrement
 		                                .claim("payload","this is a payload") // le payload eventuelle
 		                                .signWith(signatureAlgorithm, signingKey); // la signature
 		 

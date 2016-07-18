@@ -8,7 +8,7 @@ import com.mika.qcm.model.Question;
 public interface QuestionDao extends GenericDao<Question, Long>{
 	
 	 /**
-    Obtenir les questions non liées à un questionnaire
+    Obtenir les questions non liÃ©es Ã© un questionnaire
     @return La Liste des Questions.
 	 */
 	 List<Question> findQuestionWithoutQuestionnaire();
