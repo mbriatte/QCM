@@ -183,7 +183,7 @@ public class QuestionnaireServiceImplTest {
 		
 		Question quest3= new  Question("ceci est une question3 ");
 		q.addQuestion(quest3);
-		q.setLibelle("ceci est le questionaire modifié");
+		q.setLibelle("ceci est le questionaire modifiÃ©");
 		questionnaireService.saveQuestionnaire(q);
 		
 		l = questionnaireService.getQuestions(id);

@@ -84,7 +84,7 @@ public class QuestionDaoImplTestTest {
 	public void testAddQuestion(){
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		daoquestion.add(q);
 		int sizeafter = daoquestion.getAll().size();
 		assertEquals(sizebefore+1,sizeafter);
@@ -94,7 +94,7 @@ public class QuestionDaoImplTestTest {
 	public void testRemoveQuestion(){
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		daoquestion.add(q);
 		int sizeafter = daoquestion.getAll().size();
 		assertEquals(sizebefore+1,sizeafter);
@@ -108,11 +108,11 @@ public class QuestionDaoImplTestTest {
 	public void testSaveQuestion(){
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		daoquestion.add(q);
 		int sizeafter = daoquestion.getAll().size();
 		assertEquals(sizebefore+1,sizeafter);
-		q.setEnonce("ceci est un ennoncé modifié");
+		q.setEnonce("ceci est un ennoncÃ© modifiÃ©");
 		daoquestion.update(q);
 	}
 

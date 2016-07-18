@@ -9,20 +9,20 @@ import com.mika.qcm.model.Questionnaire;
 public interface QuestionnaireService {
 
 	 /**
-    sauvegarde un nouveau questionnaire en base ainsi que ses assocations si celles ci ne le sont pas déjà
-    @param le questionnaire à sauvegarder
+    sauvegarde un nouveau questionnaire en base ainsi que ses assocations si celles ci ne le sont pas dÃ©jÃ 
+    @param le questionnaire ï¿½ sauvegarder
 	 */
 	void addQuestionnaire(Questionnaire q);
 	
 	 /**
-    sauvegarde un  questionnaire en base ainsi que ses assocations si celles ci ne le sont pas déjà
-    @param le questionnaire à sauvegarder
+    sauvegarde un  questionnaire en base ainsi que ses assocations si celles ci ne le sont pas dÃ©jÃ 
+    @param le questionnaire ï¿½ sauvegarder
 	 */
 	void saveQuestionnaire(Questionnaire q);
 	
 	 /**
     supprime un  questionnaire et ses association
-    @param l'identifiant du questionnaire à supprimer
+    @param l'identifiant du questionnaire Ã  supprimer
 	 */
 	void removeQuestionnaire(Long idquestionnaire);
 	
@@ -34,41 +34,41 @@ public interface QuestionnaireService {
 	
 	/**
     recherche un questionnaire selon son identifiant
-    @param l'identifiant du questionnaire à rechercher
-    @return le questionnaire recherché
+    @param l'identifiant du questionnaire ï¿½ rechercher
+    @return le questionnaire recherchï¿½
 	 */
 	Questionnaire getQuestionnaire(Long idquestionnaire);
 	
 	/**
     recherche le 1er questionnaire selon un libelle
-    @param le libelle du questionnaire recherché
+    @param le libelle du questionnaire recherchï¿½
     @return le 1Er questionnaire ayant ce libelle
 	 */
 	Questionnaire getQuestionnaireByName(String questionnaire);
 	
 	/**
     recherche le 1er questionnaire selon un libelle en chargant ses associations
-    @param le libelle du questionnaire recherché
+    @param le libelle du questionnaire recherchï¿½
     @return le 1Er questionnaire ayant ce libelle
 	 */
 	Questionnaire getQuestionnaireWithAssociationByName(String questionnaire);
 	
 	/**
-    ajoute une question à un questionnaire
-    @param  q la question à ajouter
+    ajoute une question ï¿½ un questionnaire
+    @param  q la question ï¿½ ajouter
     @param  idquestionnaire lidentifiant du questionnaire sur lequel ajouter la question
 	 */
 	void addQuestionToQuestionnaire(Question q, Long idquestionnaire);
 	
 	/**
     supprime une question sur un questionnaire
-    @param  idquestion l'identifiant de la question à supprimer
+    @param  idquestion l'identifiant de la question ï¿½ supprimer
     @param  idquestionnaire l'identifiant du questionnaire sur lequel supprimer la question
 	 */
 	void removeQuestionFromQuestionnaire( Long idquestion , Long idquestionnaire);	
 
 	/**
-    retourne les questions associées à un questionnaire
+    retourne les questions associï¿½es ï¿½ un questionnaire
     @param  idquestionnaire l'identifiant du questionnaire
      @return la liste des questions
 	 */

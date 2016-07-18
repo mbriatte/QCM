@@ -56,7 +56,7 @@ public class QuestionServiceImplTest {
 		
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		this.questionService.addQuestion(q);
 		int sizeafter = daoquestion.getAll().size();
 		assertEquals(sizebefore+1,sizeafter);
@@ -69,7 +69,7 @@ public class QuestionServiceImplTest {
 		
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		Proposition p = new Proposition("ceci est une proposition");
 		q.addProposition(p);
 		this.questionService.addQuestion(q);
@@ -86,7 +86,7 @@ public class QuestionServiceImplTest {
 	public void testremoveQuestion() {
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		this.questionService.addQuestion(q);
 		Long idquestion=q.getId();
 		int sizeafter = daoquestion.getAll().size();
@@ -101,7 +101,7 @@ public class QuestionServiceImplTest {
 	public void testremoveQuestionwithproposition() {
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		this.questionService.addQuestion(q);
 		Long idquestion=q.getId();
 		int sizeafter = daoquestion.getAll().size();
@@ -127,7 +127,7 @@ public class QuestionServiceImplTest {
 	public void testaddPropositionToQuestion() {
 		
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		questionService.addQuestion(q);
 		Proposition p = new Proposition("ceci est une proposition 1");
 		q.addProposition(p);
@@ -139,7 +139,7 @@ public class QuestionServiceImplTest {
 	@Test
 	public void testemovePropositionFromQuestion() {
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		questionService.addQuestion(q);
 		Proposition p = new Proposition("ceci est une proposition 1");
 		q.addProposition(p);
@@ -161,7 +161,7 @@ public class QuestionServiceImplTest {
 	public void testsaveQuestion() {
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		questionService.saveQuestion(q);
 		int sizeafter = daoquestion.getAll().size();
 		assertEquals(sizebefore+1,sizeafter);
@@ -172,7 +172,7 @@ public class QuestionServiceImplTest {
 	public void testsaveQuestionwithassociation() {
 		int sizebefore = daoquestion.getAll().size();
 		Question q = new Question();
-		q.setEnonce("ceci est un enoncé");
+		q.setEnonce("ceci est un enoncÃ©");
 		Proposition p = new Proposition("ceci est une proposition");
 		q.addProposition(p);
 		questionService.saveQuestion(q);
