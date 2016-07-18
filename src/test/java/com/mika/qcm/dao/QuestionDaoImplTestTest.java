@@ -20,9 +20,8 @@ import com.mika.qcm.service.QuestionService;
 
 
 public class QuestionDaoImplTestTest {
-	 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/test/java/com/mika/qcm/spring-database.xml");
 		
-	 
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-database.xml");
 	  QuestionDao daoquestion = context.getBean(QuestionDao.class);
 	 QuestionnaireDao daoquestionnaire = context.getBean(QuestionnaireDao.class);
 	 QuestionService questionService = context.getBean(QuestionService.class);
