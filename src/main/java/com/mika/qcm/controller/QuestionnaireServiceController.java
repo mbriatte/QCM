@@ -1,4 +1,4 @@
-package com.mika.qcm.controller;
+package main.java.com.mika.qcm.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -19,9 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.mika.qcm.model.Questionnaire;
-
-import com.mika.qcm.service.QuestionnaireService;
+import main.java.com.mika.qcm.model.Questionnaire;
+import main.java.com.mika.qcm.service.QuestionnaireService;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

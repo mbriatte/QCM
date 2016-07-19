@@ -1,10 +1,12 @@
-package com.mika.qcm.dao.impl;
+package main.java.com.mika.qcm.dao.impl;
 
 
 import org.hibernate.SessionFactory;
 
-import com.mika.qcm.dao.QuestionnaireDao;
-import com.mika.qcm.model.Questionnaire;
+import main.java.com.mika.qcm.dao.QuestionnaireDao;
+import main.java.com.mika.qcm.model.Questionnaire;
+
+
 
 public class QuestionnaireDaoImpl extends GenericDaoImpl<Questionnaire, Long> implements QuestionnaireDao {
 

@@ -1,4 +1,4 @@
-package com.mika.qcm.dao.impl;
+package main.java.com.mika.qcm.dao.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -17,9 +17,11 @@ import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.transaction.annotation.Transactional;
+
+import main.java.com.mika.qcm.dao.GenericDao;
+
 import org.springframework.transaction.annotation.Propagation;
 
-import com.mika.qcm.dao.GenericDao;
 
 
 @SuppressWarnings("unchecked")

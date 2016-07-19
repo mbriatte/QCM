@@ -1,4 +1,4 @@
-package com.mika.qcm.controller;
+package main.java.com.mika.qcm.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mika.qcm.model.Question;
-import com.mika.qcm.service.QuestionService;
+import main.java.com.mika.qcm.model.Question;
+import main.java.com.mika.qcm.service.QuestionService;
 
 
 @Controller

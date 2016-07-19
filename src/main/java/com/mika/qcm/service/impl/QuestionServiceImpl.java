@@ -1,14 +1,14 @@
-package com.mika.qcm.service.impl;
+package main.java.com.mika.qcm.service.impl;
 
 import java.util.List;
 
-import com.mika.qcm.dao.PropositionDao;
-import com.mika.qcm.dao.QuestionDao;
+import main.java.com.mika.qcm.dao.PropositionDao;
+import main.java.com.mika.qcm.dao.QuestionDao;
 
-import com.mika.qcm.model.Proposition;
-import com.mika.qcm.model.Question;
+import main.java.com.mika.qcm.model.Proposition;
+import main.java.com.mika.qcm.model.Question;
 
-import com.mika.qcm.service.QuestionService;
+import main.java.com.mika.qcm.service.QuestionService;
 
 public class QuestionServiceImpl implements QuestionService {
 

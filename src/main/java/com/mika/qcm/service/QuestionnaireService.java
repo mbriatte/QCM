@@ -1,9 +1,9 @@
-package com.mika.qcm.service;
+package main.java.com.mika.qcm.service;
 
 import java.util.List;
 
-import com.mika.qcm.model.Question;
-import com.mika.qcm.model.Questionnaire;
+import main.java.com.mika.qcm.model.Question;
+import main.java.com.mika.qcm.model.Questionnaire;
 
 
 public interface QuestionnaireService {

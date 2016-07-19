@@ -1,4 +1,4 @@
-package com.mika.jwt;
+package main.java.com.mika.jwt;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;

@@ -1,6 +1,6 @@
-package com.mika.qcm.dao;
+package main.java.com.mika.qcm.dao;
 
-import com.mika.qcm.model.Questionnaire;
+import main.java.com.mika.qcm.model.Questionnaire;
 
 public interface QuestionnaireDao extends GenericDao<Questionnaire, Long>{
 	 /**
