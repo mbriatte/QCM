@@ -18,7 +18,7 @@
     <context:annotation-config />
     
     <mvc:annotation-driven/>  
-	<context:component-scan base-package="com.mika.qcm" />  
+	<context:component-scan base-package="main.java.com.mika.qcm" />  
     
 	<!-- MySQL data source -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -55,27 +55,27 @@
 		</property>
 	</bean>
 
-	<bean id="QuestionnaireDao" class="com.mika.qcm.dao.impl.QuestionnaireDaoImpl">
+	<bean id="QuestionnaireDao" class="main.java.com.mika.qcm.dao.impl.QuestionnaireDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />  
 	</bean>
 
-	<bean id="QuestionDao" class="com.mika.qcm.dao.impl.QuestionDaoImpl">
+	<bean id="QuestionDao" class="main.java.com.mika.qcm.dao.impl.QuestionDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean id="PropositionDao" class="com.mika.qcm.dao.impl.PropositionDaoImpl">
+	<bean id="PropositionDao" class="main.java.com.mika.qcm.dao.impl.PropositionDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
 	
 	<bean id="QuestionnaireService" 
-                class="com.mika.qcm.service.impl.QuestionnaireServiceImpl">
+                class="main.java.com.mika.qcm.service.impl.QuestionnaireServiceImpl">
 		<property name="questionnaireDao" ref="QuestionnaireDao" />
 		<property name="questionDao" ref="QuestionDao" />
 	</bean>
 	 
 	<bean id="QuestionService" 
-                class="com.mika.qcm.service.impl.QuestionServiceImpl">
+                class="main.java.com.mika.qcm.service.impl.QuestionServiceImpl">
 		<property name="questionDao" ref="QuestionDao" />
 		<property name="propositionDao" ref="PropositionDao" />
 	</bean>
