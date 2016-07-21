@@ -10,3 +10,9 @@ env:
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarQube analysis
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.login=fe4e74a05431f8b536f47b7211c94f833e1877ee
+  
+services:
+  - docker
+
+before_install:
+  - docker build -t mbriatte/qcm .
