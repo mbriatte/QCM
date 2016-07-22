@@ -22,4 +22,4 @@ script:
 after_success:
   - docker build -t mbriatte/qcm .
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push qcm
+  - docker push mbriatte/qcm
