@@ -18,6 +18,9 @@ script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.login=fe4e74a05431f8b536f47b7211c94f833e1877ee
 
 after_success:
-  - docker build -t mbriatte/qcm:latest  .
+  - docker build -t mbriatte/qcm:latest .
+  - docker images
+  - docker run mbriatte/qcm:latest --name webapp 
+  - docker ps -a 
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push mbriatte/qcm:latest 
