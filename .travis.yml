@@ -19,7 +19,7 @@ script:
 
 after_success:
   - docker build -t mbriatte/qcm:latest .
-  - docker run --name webapp mbriatte/qcm:latest  
+ # a des fins de debug - docker run --name webapp mbriatte/qcm:latest  
   - docker ps -a 
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push mbriatte/qcm:latest 
