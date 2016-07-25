@@ -1,16 +1,16 @@
-package main.java.com.mika.qcm.service.impl;
+package com.mika.qcm.service.impl;
 
 import java.util.List;
 
 import org.hibernate.criterion.Restrictions;
 
 
-import main.java.com.mika.qcm.dao.QuestionDao;
-import main.java.com.mika.qcm.dao.QuestionnaireDao;
+import com.mika.qcm.dao.QuestionDao;
+import com.mika.qcm.dao.QuestionnaireDao;
 
-import main.java.com.mika.qcm.model.Question;
-import main.java.com.mika.qcm.model.Questionnaire;
-import main.java.com.mika.qcm.service.QuestionnaireService;
+import com.mika.qcm.model.Question;
+import com.mika.qcm.model.Questionnaire;
+import com.mika.qcm.service.QuestionnaireService;
 
 public class QuestionnaireServiceImpl  implements QuestionnaireService {
 	

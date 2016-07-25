@@ -1,4 +1,4 @@
-package test.java.com.mika.qcm.dao;
+package com.mika.qcm.dao;
 
 import static org.junit.Assert.*;
 
@@ -10,9 +10,9 @@ import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
-import main.java.com.mika.qcm.dao.QuestionnaireDao;
-import main.java.com.mika.qcm.model.Question;
-import main.java.com.mika.qcm.model.Questionnaire;
+import com.mika.qcm.dao.QuestionnaireDao;
+import com.mika.qcm.model.Question;
+import com.mika.qcm.model.Questionnaire;
 
 public class QuestionnaireDaoImplTest {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-database.xml");
@@ -27,11 +27,11 @@ public class QuestionnaireDaoImplTest {
 	    
 	    @Test
 	    public void testAdd() {
-	    	System.out.println("test add");
+	    
 	        int oldSize = daoquestionnaire.getAll().size();
 	        Questionnaire e = new Questionnaire("test");
 	        daoquestionnaire.add(e);
-	        System.out.println("creation de l'objet "+oldSize);
+	     
 	        int newSize = daoquestionnaire.getAll().size();
 	         
 	        assertFalse (oldSize == newSize);
@@ -41,7 +41,7 @@ public class QuestionnaireDaoImplTest {
 	    
 	    @Test
 	    public void testAdd2element() {
-	    	System.out.println("test add");
+	    
 	        int oldSize = daoquestionnaire.getAll().size();
 	        Questionnaire e = new Questionnaire("test");
 	        daoquestionnaire.add(e);
@@ -75,7 +75,7 @@ public class QuestionnaireDaoImplTest {
 	    
 	    @Test
 	    public void testUpdate() {
-	    	System.out.println("test update");
+	    
 	    	Long id=daoquestionnaire.getAll().get(0).getId();
 	    	 Questionnaire e = daoquestionnaire.find(id);
 	    	 e.setLibelle("new libelle");
@@ -87,9 +87,9 @@ public class QuestionnaireDaoImplTest {
 	    
 	    @Test
 	    public void testRemove() {
-	    	System.out.println("test remove");
+	    	
 	        int oldSize = daoquestionnaire.getAll().size();
-	        System.out.println("remove "+ oldSize);
+	        
 	        Questionnaire e = daoquestionnaire.getAll().get(0);
 	        daoquestionnaire.remove(e);
 	        int newSize = daoquestionnaire.getAll().size();
@@ -99,9 +99,9 @@ public class QuestionnaireDaoImplTest {
 	     
 	    @Test
 	    public void testList() {
-	    	System.out.println("test list");
+	    	
 	        List<Questionnaire> list = daoquestionnaire.getAll();
-	        System.out.println("liste "+ list.size());
+	      
 	        assertNotNull (list);
 	        assertFalse (list.isEmpty());
 	    }
@@ -109,7 +109,7 @@ public class QuestionnaireDaoImplTest {
 	    
 	    @Test
 	    public void testFind() {
-	    	System.out.println("test list");
+	    	
 	    	  Long id =  daoquestionnaire.getAll().get(0).getId();
 	    	Questionnaire q=daoquestionnaire.find(id);
 	    	   assertNotNull (q);
@@ -124,7 +124,7 @@ public class QuestionnaireDaoImplTest {
 	    		    			  
 		        Questionnaire f= daoquestionnaire.findByNameWithAssociations("testrecehrche");
 				 
-		    	System.out.println("questionnaire nom ="+ f.getLibelle());
+		    	
 		    	assertEquals (f.getLibelle(),"testrecehrche");
 		    	 f= daoquestionnaire.findByNameWithAssociations("inconnu");
 		    	assertTrue (f==null);
@@ -138,7 +138,7 @@ public class QuestionnaireDaoImplTest {
 	    		    			  
 		        List<Questionnaire> l=  (List<Questionnaire>) daoquestionnaire.findByCriteria(Questionnaire.class, Restrictions.eq("libelle","testrecehrche2"));
 		        Questionnaire f= l.get(0);
-		    	System.out.println("questionnaire nom ="+ f.getLibelle());
+		    
 		    	assertEquals (f.getLibelle(),"testrecehrche2");
 		    			       	    	
 	    }

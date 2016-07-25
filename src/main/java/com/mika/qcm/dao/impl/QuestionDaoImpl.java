@@ -1,11 +1,11 @@
-package main.java.com.mika.qcm.dao.impl;
+package com.mika.qcm.dao.impl;
 
 import java.util.List;
 
 import org.hibernate.SessionFactory;
 
-import main.java.com.mika.qcm.dao.QuestionDao;
-import main.java.com.mika.qcm.model.Question;
+import com.mika.qcm.dao.QuestionDao;
+import com.mika.qcm.model.Question;
 
 
 

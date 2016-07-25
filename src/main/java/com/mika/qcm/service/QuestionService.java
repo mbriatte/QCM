@@ -1,10 +1,10 @@
-package main.java.com.mika.qcm.service;
+package com.mika.qcm.service;
 
 import java.util.List;
 
-import main.java.com.mika.qcm.model.Proposition;
+import com.mika.qcm.model.Proposition;
 
-import main.java.com.mika.qcm.model.Question;
+import com.mika.qcm.model.Question;
 
 
 

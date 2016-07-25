@@ -1,4 +1,4 @@
-package test.java.com.mika.qcm.dao;
+package com.mika.qcm.dao;
 
 import static org.junit.Assert.*;
 
@@ -11,12 +11,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import main.java.com.mika.qcm.dao.QuestionDao;
-import main.java.com.mika.qcm.dao.QuestionnaireDao;
+import com.mika.qcm.dao.QuestionDao;
+import com.mika.qcm.dao.QuestionnaireDao;
 
-import main.java.com.mika.qcm.model.Question;
-import main.java.com.mika.qcm.model.Questionnaire;
-import main.java.com.mika.qcm.service.QuestionService;
+import com.mika.qcm.model.Question;
+import com.mika.qcm.model.Questionnaire;
+import com.mika.qcm.service.QuestionService;
 
 
 public class QuestionDaoImplTest {
@@ -58,11 +58,8 @@ public class QuestionDaoImplTest {
             daoquestion.add(q);
             cpt=q.getId();
         }
-        
-		
-        int oldSize = daoquestion.getAll().size();
-        System.out.println("remove "+ oldSize);
-      
+        	
+        int oldSize = daoquestion.getAll().size();         
         Question q=daoquestion.find(cpt);
         daoquestion.remove(q);
         int newSize = daoquestion.getAll().size();

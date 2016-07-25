@@ -1,8 +1,8 @@
-package main.java.com.mika.qcm.dao;
+package com.mika.qcm.dao;
 
 import java.util.List;
 
-import main.java.com.mika.qcm.model.Question;
+import com.mika.qcm.model.Question;
 
 
 

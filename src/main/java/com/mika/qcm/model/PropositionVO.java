@@ -1,4 +1,4 @@
-package main.java.com.mika.qcm.model;
+package com.mika.qcm.model;
 
 public class PropositionVO {
 	private Long id;

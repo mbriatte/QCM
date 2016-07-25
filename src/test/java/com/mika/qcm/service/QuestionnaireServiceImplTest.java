@@ -1,4 +1,4 @@
-package test.java.com.mika.qcm.service;
+package com.mika.qcm.service;
 
 import static org.junit.Assert.*;
 
@@ -13,11 +13,11 @@ import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
-import main.java.com.mika.qcm.dao.QuestionDao;
-import main.java.com.mika.qcm.dao.QuestionnaireDao;
-import main.java.com.mika.qcm.model.Question;
-import main.java.com.mika.qcm.model.Questionnaire;
-import main.java.com.mika.qcm.service.QuestionnaireService;
+import com.mika.qcm.dao.QuestionDao;
+import com.mika.qcm.dao.QuestionnaireDao;
+import com.mika.qcm.model.Question;
+import com.mika.qcm.model.Questionnaire;
+import com.mika.qcm.service.QuestionnaireService;
 
 public class QuestionnaireServiceImplTest {
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-database.xml");
@@ -35,7 +35,7 @@ public class QuestionnaireServiceImplTest {
 
 	@Before
 	public void setUp() throws Exception {
-		System.out.print("ceci est un test");
+	
 	}
 
 	
@@ -225,7 +225,7 @@ public class QuestionnaireServiceImplTest {
 		Questionnaire qbyid=questionnaireService.getQuestionnaire(id);
 		assertEquals(3,qbyid.getQuestions().size());
 		
-		System.out.println("debut recherche");
+	
 		Questionnaire qs=questionnaireService.getQuestionnaireWithAssociationByName("ceci est un questionnaire 3");
 		assertEquals("ceci est un questionnaire 3",qs.getLibelle());
 		assertEquals(3,qs.getQuestions().size());

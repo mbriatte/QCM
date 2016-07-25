@@ -1,4 +1,4 @@
-package main.java.com.mika.jwt;
+package com.mika.jwt;
 
 import static org.junit.Assert.*;
 
